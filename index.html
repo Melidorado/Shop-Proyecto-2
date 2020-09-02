@@ -26,81 +26,87 @@
     <section>
         <aside>
             <div>
+                
                 <div class="titulo-filtros">
                     <h1>FILTROS</h1>
                     <button class="limpiar"> <i class="fas fa-trash-alt"></i>Limpiar</button>
                 </div>
-
+                <form>
                 <div class="busqueda">
                     <h2>BÚSQUEDA</h2>
+                    <input type="text" class="busqueda-usuario" name="busqueda" placeholder="Buscar productos"/>
                 </div>
 
                 <div class="categorias">
                     <h2>CATEGORÍA</h2>
-                    <label><input type="checkbox"> CELULARES</label>
-                    <label><input type="checkbox"> RELOJES</label>
-                    <label><input type="checkbox"> COMPUTADORAS</label>
-                    <label><input type="checkbox"> TV</label>
-                    <label><input type="checkbox"> GAMING</label>
-                    <label><input type="checkbox"> AURICULARES</label>
+                   
+                        <label for="celulares"><input type="checkbox" id="celulares" name="categoria" value="CELULARES"> CELULARES</label>
+                        <label for="relojes"><input type="checkbox" id="relojes" name="categoria" value="RELOJES"> RELOJES</label>
+                        <label for="computadoras"><input type="checkbox" id="computadoras" name="categoria" value="COMPUTADORAS"> COMPUTADORAS</label>
+                        <label for="tv"><input type="checkbox" id="tv" name="categoria" value="TV"> TV</label>
+                        <label for="gaming"><input type="checkbox" id="gaming" name="categoria" value="GAMING"> GAMING</label>
+                        <label for="auriculares"><input type="checkbox" id="auriculares" name="categoria" value="AURICULARES"> AURICULARES</label>
+                    
                 </div>
 
                 <div class="puntaje">
                     <h2>PUNTAJE</h2>
-                    <label><input type="checkbox">   
-                        <div class="calificacion-puntaje">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div> (5) 
-                    </label>
-                    <label><input type="checkbox">   
-                        <div class="calificacion-puntaje">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                        </div> (4) 
-                    </label>
-                    <label><input type="checkbox">   
-                        <div class="calificacion-puntaje">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                        </div> (3) 
-                    </label>
-                    <label><input type="checkbox">   
-                        <div class="calificacion-puntaje">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                        </div> (2) 
-                    </label>
-                    <label><input type="checkbox">   
-                        <div class="calificacion-puntaje">
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                        </div> (1) 
-                    </label>
-                    <label><input type="checkbox">   
-                        <div class="calificacion-puntaje">
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                        </div> (0) 
-                    </label>
+                    
+                        <label for="5estrellas"><input type="checkbox" id="5estrellas" name="calificacion" value="5Estrellas">   
+                            <div class="calificacion-puntaje">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div> (5) 
+                        </label>
+                        <label for="4estrellas"><input type="checkbox" id="4estrellas" name="calificacion" value="4Estrellas">   
+                            <div class="calificacion-puntaje">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div> (4) 
+                        </label>
+                        <label for="3estrellas"><input type="checkbox" id="3estrellas" name="calificacion" value="3Estrellas">   
+                            <div class="calificacion-puntaje">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div> (3) 
+                        </label>
+                        <label for="2estrellas"><input type="checkbox" id="2estrellas" name="calificacion" value="2Estrellas">   
+                            <div class="calificacion-puntaje">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div> (2) 
+                        </label>
+                        <label for="1estrella"><input type="checkbox" id="1estrella" name="calificacion" value="1Estrellas">   
+                            <div class="calificacion-puntaje">
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div> (1) 
+                        </label>
+                        <label for="0estrella"><input type="checkbox" id="0estrella" name="calificacion" value="0Estrellas">   
+                            <div class="calificacion-puntaje">
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div> (0) 
+                        </label>
+                </form>
 
                    
                 </div>

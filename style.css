@@ -9,6 +9,7 @@ i {
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: #3e434b;
+    overflow-x: hidden;
 }
 nav {
     background-color:white;
@@ -18,6 +19,7 @@ nav {
 
 button {
     outline-style: none;
+    border: 1px solid transparent;
 }
 
 .nombre-pagina, .carrito {
@@ -30,17 +32,125 @@ button {
     margin-right: 5px;
 }
 
+/*-----------------------CARRITO DE COMPRAS LATERAL------------------------*/
+.no-scroll {
+    overflow: hidden;
+}
+
+.hidden {
+    display: none;
+}
+
+.overlay {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.4);
+    position: absolute;
+    top:0;
+    z-index: 2;
+}
+
+#carrito-lateral {
+    height: 100vh;
+    width: 350px;
+    background-color: white;
+    position: absolute;
+    right: 0;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    padding: 0 30px;
+    transform:translate(410px);
+    transition: .4s ease;
+}
+
+.mostrar-menu {
+    transform: translate(0) !important;
+}
+
+.titulo-carrito {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    height: 5%;
+}
+
+.titulo-carrito i {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.descripcion-compra {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 95%;
+    margin-bottom: 20px;
+}
+
+#boton-comprar {
+    width: 100%;
+    background-color: #4caf50;
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    color: white;
+    margin-top: 10px;
+    transition: .3s;
+}
+
+#boton-comprar:hover {
+    background-color: #43a047;
+}
+
+#boton-vaciar {
+    width: 100%;
+    background-color: transparent;
+    padding: 15px;
+    border: 1px solid #d32f2f;
+    border-radius: 5px;
+    color: #d32f2f;
+    margin-top: 10px;
+    transition: .3s;
+}
+
+#boton-vaciar:hover {
+    background-color: #c62828;
+    color: white;
+}
+
+/*------------------------FIN CARRITO DE COMPRAS LATERAL-------------------------------*/
+
 header {
-    height: 300px;
+    height: 400px;
     background-color: black;
+    background-image: url("banner.jpeg");
+    background-position: 25% 75%;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+
+header:before {
+	content:'';
+	position: absolute;
+        top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0,0,0,0.5);
 }
 
 header > h1 {
     color: white;
+    z-index: 1;
 }
+
+
 
 footer {
     background-color:#CBC0D3;
@@ -58,7 +168,7 @@ section {
     padding: 60px 100px;
 }
 
-aside {
+.contenedor-filtros {
     background-color: #FEEAFA;
     flex: 1;
     display: flex;
@@ -66,7 +176,7 @@ aside {
     padding: 30px;
 }
 
-aside > div {
+.contenedor-filtros > div {
     margin: 15px;
     display: flex;
     flex-direction: column;
@@ -104,19 +214,31 @@ input {
     margin: 0;
 }
 
-.busqueda-usuario {
+.busqueda-escrita {
+    display: flex;
+    position: relative;
+}
+
+.icono {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+#busqueda-usuario {
     padding: 10px;
     border:none;
     background-color:transparent;
     border-bottom:2px solid #3e434b;
     width: 212px;
     outline-style: none;
+    box-sizing: border-box;
 }
 
-.busqueda-usuario:focus {
+#busqueda-usuario:focus {
     border: 1px solid #3e434b;
     border-radius: 4px;
-    padding: 15px;
+    
 }
 
 .categorias {
@@ -149,14 +271,15 @@ input {
     color:#CBC0D3;
 }
 
-.limpiar {
+.limpiar, .carrito {
     display: flex;
     align-items: center;
     margin-left: 60px;
-    border: 0;
+    border: 1px solid transparent;
     background: transparent;
     cursor: pointer;
     color:#3e434b;
+    box-sizing: border-box;
 }
 
 .limpiar > i {
@@ -166,7 +289,6 @@ input {
 
 section > div {
     flex: 9;
-    background-color:#FEEAFA;
 }
 
 .indicador-productos {
@@ -177,6 +299,7 @@ section > div {
     font-size: 13px;
     font-weight: 300;
     color: #3e434b;
+    width: 1110px;
 }
 
 .indicador-productos > p {
@@ -184,7 +307,7 @@ section > div {
 }
 
 .grilla {
-    border: 0;
+    
     background: transparent;
     cursor: pointer;
 }
@@ -205,31 +328,47 @@ section > div {
     display: flex;
     flex-wrap: wrap;
     align-content: center;
+    
 }
 
-article {
+.productos {
     height: 500px;
+    width: 290px;
     background-color:white;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 15px;
-    flex: 1 1 300px;
+    padding: 5px 30px;
+    transition: .2s ease-out;  
+}
+
+.productos:hover {
+    box-shadow: 0 0 20px 4px rgba(0, 0, 0, 0.1);
 }
 
 img {
     height: 100%;
+    transition: 0.2s ease-out;
+}
+
+img:hover {
+    transform: scale(1.5);
 }
 
 .contenedor-imagen {
-    height: 50%;
+    height: 60%;
     margin: 20px;
+    overflow: hidden;
+    
 }
+
+
 
 .descripcion {
     display: flex;
     flex-direction: column;
-    height: 50%;
+    height: 40%;
     align-items: center;
 }
 
@@ -241,7 +380,7 @@ img {
 .descripcion > button {
     width: 250px;
     height: 45px;
-    border: 0;
+    border: 1px solid transparent;
     border-radius: 5px;
     background: whitesmoke;
     font-size: 14px;
@@ -257,10 +396,9 @@ img {
 
 
 button:focus {
-    border: 1px solid #3e434b;
+    border: 1px solid #cecece;
     border-radius: 4px;
-    padding: 8px;
-
+    
 }
 
 .calificacion {
@@ -271,4 +409,8 @@ button:focus {
     margin: 2px;
     font-size: 12px;
     color: #CBC0D3;
+}
+
+.hidden {
+    display: none;
 }

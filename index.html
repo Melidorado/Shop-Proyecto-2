@@ -12,7 +12,59 @@
 </head>
 
 <body>
-    <div class="overlay hidden" id="overlay"></div>
+    
+    
+        <div class="overlay-checkout hidden" id="overlay-checkout"></div>
+        <div id="checkout" class="contenedor-checkout hidden">
+        <form id="checkout-menu">
+            <h2>Checkout</h2>
+
+            <div class="contenedor-datos">
+                <div class="datos-personales">
+                    <h3 class="titulo-personales"> Datos Personales </h3>
+                    <label>Nombre y Apellido* </label>
+                    <input type="text" placeholder="p. ej.: Ada Lovelace">
+                    <label> Email* </label>
+                    <input type="email" placeholder="p. ej.: adalovelace@gmail.com">
+
+                    <hr/>
+
+                    <h3 class="opciones"> Opciones de Pago </h3>
+                    <label>
+                        <input type="radio" value="efectivo/debito" name="modo de pago"> Efectivo/Débito 
+                    </label>
+
+                    <label>
+                        <input type="radio" value="tarjeta de credito" name="modo de pago"> Tarjeta de Crédito 
+                    </label>
+
+                    <label>
+                        <input type="checkbox" value="quiere envio" name="envio"> Necesito Envío 
+                    </label>
+
+                    <label>
+                        <input type="checkbox" value="tiene descuento" name="descuento"> Tengo Tarjeta de Descuento
+                    </label>
+                </div>
+
+                <div class="resumen"> 
+                        <h3>Resumen</h3>
+                        <div>
+                            <p class="resumen-subtotal">Subtotal: <span>$10.000</span></p>
+                            <h2 class="resumen-total">Total: <span>$10.000</span></h2>
+                        </div>
+                </div>
+            </div>
+
+            <div class="confirmacion">
+                <button id="seguir" type="button" value="seguir comprando">SEGUIR COMPRANDO</button>
+                <input id="finalizar" type="submit" value="FINALIZAR">
+            </div>
+        </form>
+        </div>
+
+
+        <div class="overlay hidden" id="overlay"></div>
         <aside id="carrito-lateral">
             <div class="titulo-carrito">
                 <h1> Carrito </h1>
@@ -29,7 +81,9 @@
                 </div>
             </div>
         </aside>
-    
+        
+        
+
 
     <nav>
         <div>

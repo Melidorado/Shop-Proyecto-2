@@ -135,6 +135,8 @@ const botonCerrarMenu = document.getElementById("cerrar")
 const menuLateral = document.getElementById("carrito-lateral")
 const overlay = document.getElementById("overlay")
 
+console.log(overlay)
+
 botonCarrito.onclick = () => {
     menuLateral.classList.add("mostrar-menu")
     overlay.classList.remove("hidden")
@@ -146,4 +148,28 @@ botonCerrarMenu.onclick = () => {
     overlay.classList.add("hidden")
     document.body.classList.remove("no-scroll")
 }
+
+//-------------------------------------- CHECKOUT COMPRAS --------------------------------------------------//
+
+const botonComprar = document.getElementById("boton-comprar")
+const botonVaciar = document.getElementById("boton-vaciar")
+const overlayCheckout = document.getElementById("overlay-checkout")
+const menuCheckout = document.getElementById("checkout")
+const botonSeguirComprando = document.getElementById("seguir")
+
+console.log(botonSeguirComprando)
+
+botonComprar.onclick = () => {
+    menuCheckout.classList.remove("hidden")
+    overlayCheckout.classList.remove("hidden")
+}
+
+botonSeguirComprando.onclick = () => {
+    menuCheckout.classList.add("hidden")
+    overlayCheckout.classList.add("hidden")
+}
+
+
+
+
 

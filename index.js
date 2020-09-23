@@ -135,7 +135,7 @@ const botonCerrarMenu = document.getElementById("cerrar")
 const menuLateral = document.getElementById("carrito-lateral")
 const overlay = document.getElementById("overlay")
 
-console.log(overlay)
+
 
 botonCarrito.onclick = () => {
     menuLateral.classList.add("mostrar-menu")
@@ -152,12 +152,11 @@ botonCerrarMenu.onclick = () => {
 //-------------------------------------- CHECKOUT COMPRAS --------------------------------------------------//
 
 const botonComprar = document.getElementById("boton-comprar")
-const botonVaciar = document.getElementById("boton-vaciar")
 const overlayCheckout = document.getElementById("overlay-checkout")
 const menuCheckout = document.getElementById("checkout")
 const botonSeguirComprando = document.getElementById("seguir")
 
-console.log(botonSeguirComprando)
+
 
 botonComprar.onclick = () => {
     menuCheckout.classList.remove("hidden")
@@ -168,6 +167,36 @@ botonSeguirComprando.onclick = () => {
     menuCheckout.classList.add("hidden")
     overlayCheckout.classList.add("hidden")
 }
+
+//-------------------------------------- ALERT VACIAR CARRITO -----------------------------------------------//
+
+const botonVaciar = document.getElementById("boton-vaciar")
+const botonCancelar = document.getElementById("cancelar-vaciar")
+const botonConfirmarVaciar = document.getElementById("vaciar")
+const overlayVaciar = document.getElementById("overlay-vaciar")
+const alertVaciar = document.getElementById("alert-vaciar")
+
+const indicadorCantProductos = document.getElementById("indicador-cantidad-productos")
+const subYBotones = document.getElementById("contenedor-subtotal-botones")
+
+
+botonVaciar.onclick = () => {
+    overlayVaciar.classList.remove("hidden")
+    alertVaciar.classList.remove("hidden")
+}
+
+botonCancelar.onclick = () => {
+    overlayVaciar.classList.add("hidden")
+    alertVaciar.classList.add("hidden")
+}
+
+botonConfirmarVaciar.onclick = () => {
+    overlayVaciar.classList.add("hidden")
+    alertVaciar.classList.add("hidden")
+    indicadorCantProductos.textContent = "No tienes productos en el carrito, ¡agrega algunos!"
+    subYBotones.classList.add("hidden")
+}
+
 
 
 

@@ -23,9 +23,9 @@
                 <div class="datos-personales">
                     <h3 class="titulo-personales"> Datos Personales </h3>
                     <label>Nombre y Apellido* </label>
-                    <input type="text" placeholder="p. ej.: Ada Lovelace">
+                    <input type="text" placeholder="p. ej.: Ada Lovelace" required>
                     <label> Email* </label>
-                    <input type="email" placeholder="p. ej.: adalovelace@gmail.com">
+                    <input type="email" placeholder="p. ej.: adalovelace@gmail.com" required>
 
                     <hr/>
 
@@ -63,6 +63,17 @@
         </form>
         </div>
 
+        <div class="overlay-vaciar hidden" id="overlay-vaciar"></div>
+        <div id="alert-vaciar" class="contenedor-vaciar hidden">
+            <article class="vaciar-carrito">
+                <p>Estás por vaciar el carrito, ¿quieres continuar?</p>
+                <div class="contenedor-botones-vaciar">
+                    <button id="cancelar-vaciar">CANCELAR</button>
+                    <button id="vaciar">VACIAR</button>
+                </div>
+            </article>
+        </div>
+
 
         <div class="overlay hidden" id="overlay"></div>
         <aside id="carrito-lateral">
@@ -72,9 +83,9 @@
             </div>
             <div class="descripcion-compra"> 
                 <div>
-                    <p>1 producto(s) agregado(s)</p>
+                    <p id="indicador-cantidad-productos">1 producto(s) agregado(s)</p>
                 </div>
-                <div>
+                <div id="contenedor-subtotal-botones">
                     <p id="subtotal">Subtotal $10.000</p>
                     <button id="boton-comprar">COMPRAR</button>
                     <button id="boton-vaciar">VACIAR</button>
@@ -110,7 +121,7 @@
                 </div>
                 <form>
                     <div class="busqueda">
-                        <h2>BÚSQUEDA</h2>
+                        <h2 class="sub-filtros">BÚSQUEDA</h2>
                         <div class="busqueda-escrita">
                             <input type="text" id="busqueda-usuario" name="busqueda" placeholder="Buscar productos" />
                             <i class="fas fa-search icono"></i>
@@ -118,7 +129,7 @@
                     </div>
 
                     <div class="categorias">
-                        <h2>CATEGORÍA</h2>
+                        <h2 class="sub-filtros">CATEGORÍA</h2>
 
                         <label for="celulares"><input type="checkbox" id="celulares" name="categoria" value="celulares">
                             CELULARES</label>
@@ -137,7 +148,7 @@
                     </div>
 
                     <div class="puntaje">
-                        <h2>PUNTAJE</h2>
+                        <h2 class="sub-filtros">PUNTAJE</h2>
 
                         <label for="5estrellas"><input type="checkbox" class="review-filter" id="5estrellas"
                                 name="calificacion" value="5">

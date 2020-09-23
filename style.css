@@ -238,7 +238,7 @@ button {
     height: 60px;
     width: 220px;
     padding: 0 15px;
-    border-radius: 7px;
+    border-radius: 5px;
     color: #3e434b;
     font-size: 14px;
     background-color:rgb(247, 247, 247);
@@ -254,7 +254,7 @@ button {
     width: 220px;
     padding: 0 25px;
     border: none;
-    border-radius: 7px;
+    border-radius: 5px;
     color: #3e434b;
     margin-left: 30px;
     font-size: 14px;
@@ -267,8 +267,82 @@ button {
     background-color: #43a047;
 }
 
+/*---------------------------------- FIN CHECKOUT ------------------------------------*/
 
+/*---------------------------------- ALERT VACIAR CARRITO ------------------------------*/
 
+.overlay-vaciar {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.4);
+    position: absolute;
+    top:0;
+    z-index: 4;
+}
+
+.contenedor-vaciar {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    position: absolute;
+    z-index: 5;
+}
+
+.vaciar-carrito {
+    width: 25%;
+    height: 22%;
+    background-color: white;
+    border-radius: 5px;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.vaciar-carrito > p {
+    font-size: 32px;
+    font-weight: 800;
+}
+
+.contenedor-botones-vaciar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#cancelar-vaciar {
+    width: 46%;
+    padding: 20px 40px;
+    margin-right: 5px;
+    border-radius: 5px;
+    background-color:rgb(247, 247, 247);
+    transition: .3s;
+}
+
+#cancelar-vaciar:hover {
+    background-color: #e0e0e0;
+}
+
+#vaciar {
+    width: 46%;
+    padding: 20px 40px;
+    margin-left: 5px;
+    border-radius: 5px;
+    background-color: #d32f2f;
+    color: white;
+    transition: .3s;
+}
+
+#vaciar:hover {
+    background-color: #c62828;
+}
+
+/*------------------------------------------------- FIN ALERT VACIAR -------------------------------*/
 
 
 header {
@@ -343,7 +417,7 @@ section {
     font-weight: bold;
 }
 
-.busqueda > h2 {
+.sub-filtros {
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 15px;

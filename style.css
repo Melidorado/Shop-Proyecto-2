@@ -348,8 +348,8 @@ button {
 header {
     height: 400px;
     background-color: black;
-    background-image: url("banner.jpeg");
-    background-position: 25% 75%;
+    background-image: url("banner.jpg");
+    background-position: center;
     background-size: cover;
     display: flex;
     justify-content: center;

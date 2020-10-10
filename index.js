@@ -1,112 +1,148 @@
-//-------------------------FILTROS BSUQUEDA PRODUCTOS-------------------------------//
+//-------------------------FILTROS BUSQUEDA PRODUCTOS-------------------------------//
 
 const filtroBusqueda = document.getElementById('busqueda-usuario')
 const productos = document.getElementsByClassName('productos')
-
-//-------FILTRO ESCRITURA----------//
-filtroBusqueda.oninput = () => {
-    for (let producto of productos) {
-            const tarjeta = producto.dataset.nombre;
-            const busqueda = filtroBusqueda.value;
-        if (tarjeta.includes(busqueda)) {
-            
-            producto.classList.remove('hidden');
-            
-        }
-        else {
-            producto.classList.add('hidden');
-            
-        }
-    }
-}
-
-//----------FILTRO POR RATING------------------//
-
 const filtroRating = document.getElementsByClassName('review-filter')
-
-
-for (let checkbox of filtroRating) {
-    checkbox.onclick = () => {
-        filtrarPorRating()
-    }
-}
-
-const filtrarPorRating = () => {
-    for (let producto of productos) {
-        producto.classList.add('hidden')
-        if (checkboxSeleccionado()) {
-           if (coinciden(producto)) {
-               producto.classList.remove('hidden')
-           } 
-        } 
-        else {
-            producto.classList.remove('hidden')
-        }
-    }
-}
-
-const checkboxSeleccionado = () => {
-    for (let checkbox of filtroRating) {
-      if (checkbox.checked) {
-          return true
-      }  
-    }
-} 
-
-const coinciden = (producto) => {
-    const rating = producto.dataset.rating
-    for (let checkbox of filtroRating) {
-        if (checkbox.value === rating && checkbox.checked) {
-           return true 
-        }
-    }
-
-}
-
+const filtroCategoria = document.querySelectorAll("input[name='categoria']")
 
 //--------------FILTRO POR CATEGORIA----------------//
 
-const filtroCategoria = document.querySelectorAll("input[name='categoria']")
-
-
 for (let checkbox of filtroCategoria) {
-    checkbox.onclick = () => {
-        filtrarPorCategoria()
+    checkbox.oninput = () => {
+        filtrarTarjetas()
     }
 }
 
-const filtrarPorCategoria = () => {
+//-------FILTRO ESCRITURA----------//
+filtroBusqueda.oninput = () => {
+    filtrarTarjetas()
+}
+
+
+//----------FILTRO POR RATING------------------//
+
+
+for (let checkbox of filtroRating) {
+    checkbox.oninput = () => {
+        filtrarTarjetas()
+    }
+}
+
+
+
+const filtrarTarjetas = () => {
     for (let producto of productos) {
-        producto.classList.add('hidden')
-        if (checkboxSeleccionadoCategoria()) {
-           if (coincidenCategorias(producto)) {
-               producto.classList.remove('hidden')
-           } 
-        } 
+        if (pasaFiltros(producto)) {
+            mostrarTarjetas(producto)
+        }
         else {
-            producto.classList.remove('hidden')
+            ocultarTarjetas(producto)
         }
     }
 }
 
-const checkboxSeleccionadoCategoria = () => {
-    for (let checkbox of filtroCategoria) {
-      if (checkbox.checked) {
-          return true
-      }  
-    }
-} 
-
-const coincidenCategorias = (producto) => {
-    const categoria = producto.dataset.categoria
-    for (let checkbox of filtroCategoria) {
-        if (checkbox.value === categoria && checkbox.checked) {
-           return true 
-        }
-    }
-
+const mostrarTarjetas = (producto) => {
+    return producto.classList.remove("hidden")
 }
 
+const ocultarTarjetas = (producto) => {
+    return producto.classList.add("hidden")
+}
+
+
+const hayAlgunaCategoriaChequeada = () => {
+    for (let checkbox of filtroCategoria) {
+        if (checkbox.checked) {
+            return true
+        }
+    }
+    return false
+}
+
+const hayAlgunRatingSeleccionado = () => {
+    for (let checkbox of filtroRating) {
+        if (checkbox.checked) {
+            return true
+        }
+    }
+    return false
+}
+
+const hayAlgoEscritoEnInput = () => {
+    return Boolean(filtroBusqueda.value)
+}
+
+
+
+const coincideBusquedaInputConTarjeta = (producto) => {
+    const nombreTarjeta = producto.dataset.nombre
+    const busquedaUsuario = filtroBusqueda.value.toLowerCase()
+    
+    if (nombreTarjeta.includes(busquedaUsuario)) {
+        return true
+    }
+    else {
+        return false
+    }
+}
+
+const coincideCategoriaConTarjeta = (producto) => {
+    for (let checkbox of filtroCategoria) {
+        if (checkbox.value === producto.dataset.categoria && checkbox.checked) {
+            return true
+        }
+    }
+    return false
+}
+
+const coincideRatingConTarjeta = (producto) => {
+    for (let checkbox of filtroRating) {
+        if (checkbox.value === producto.dataset.rating && checkbox.checked) {
+            return true
+        }
+       
+    }
+    return false
+}
+
+
+const filtroInputEscrito = (producto) => {
+    if (hayAlgoEscritoEnInput()) {
+        return coincideBusquedaInputConTarjeta(producto)
+    }
+    else {
+        return true
+    }
+}
+
+
+const filtroCategoriaSeleccionada = (producto) => {
+    if (hayAlgunaCategoriaChequeada()) {
+        return coincideCategoriaConTarjeta(producto)
+    }
+    else {
+        return true
+    }
+}
+
+const filtroRatingSeleccionado = (producto) => {
+    if (hayAlgunRatingSeleccionado()) {
+        return coincideRatingConTarjeta(producto)
+    }
+    else {
+        return true
+    }
+}
+
+const pasaFiltros = (producto) => {
+
+    if (filtroInputEscrito(producto)== true && filtroCategoriaSeleccionada(producto) == true && filtroRatingSeleccionado(producto)== true) {
+        return true
+    }
+    else {
+        return false
+    }
+}
 
 
 //------------BOTON LIMPIAR FILTROS--------------------//
@@ -198,7 +234,29 @@ botonConfirmarVaciar.onclick = () => {
 }
 
 
+//-------------------------------------- CAMBIAR DE GRILLA A LISTA O VICEVERSA -----------------------------------------------//
+const botonGrilla = document.getElementById("grilla")
+const botonLista = document.getElementById("lista")
+const descripcionesIndividualesProductos = document.querySelectorAll("#descripcion-producto")
+
+const contenedorProductos = document.querySelector("#grilla-o-lista")
+
+const tarjetas = document.getElementsByClassName("productos")
+const contenedoresImagenes = document.getElementsByClassName("contenedor-imagen")
+const descripcionesProductos = document.getElementsByClassName("descripcion")
+const botonesComprar = document.getElementsByClassName("boton-comprar-tarj")
+const precios = document.getElementsByClassName("precio")
 
 
+botonLista.onclick = () => {
+    contenedorProductos.classList.remove("grilla")
+    contenedorProductos.classList.add("lista")
+}
+
+botonGrilla.onclick = () => {
+    contenedorProductos.classList.remove("lista")
+    contenedorProductos.classList.add("grilla")
+    
+}
 
 

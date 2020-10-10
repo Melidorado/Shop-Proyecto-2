@@ -12,10 +12,10 @@
 </head>
 
 <body>
-    
-    
-        <div class="overlay-checkout hidden" id="overlay-checkout"></div>
-        <div id="checkout" class="contenedor-checkout hidden">
+
+    <!---------------------------------- CARRITO Y CHEECKOUT  ------------------------------------------>
+    <div class="overlay-checkout hidden" id="overlay-checkout"></div>
+    <div id="checkout" class="contenedor-checkout hidden">
         <form id="checkout-menu">
             <h2>Checkout</h2>
 
@@ -27,19 +27,19 @@
                     <label> Email* </label>
                     <input type="email" placeholder="p. ej.: adalovelace@gmail.com" required>
 
-                    <hr/>
+                    <hr />
 
                     <h3 class="opciones"> Opciones de Pago </h3>
                     <label>
-                        <input type="radio" value="efectivo/debito" name="modo de pago"> Efectivo/Débito 
+                        <input type="radio" value="efectivo/debito" name="modo de pago"> Efectivo/Débito
                     </label>
 
                     <label>
-                        <input type="radio" value="tarjeta de credito" name="modo de pago"> Tarjeta de Crédito 
+                        <input type="radio" value="tarjeta de credito" name="modo de pago"> Tarjeta de Crédito
                     </label>
 
                     <label>
-                        <input type="checkbox" value="quiere envio" name="envio"> Necesito Envío 
+                        <input type="checkbox" value="quiere envio" name="envio"> Necesito Envío
                     </label>
 
                     <label>
@@ -47,12 +47,12 @@
                     </label>
                 </div>
 
-                <div class="resumen"> 
-                        <h3>Resumen</h3>
-                        <div>
-                            <p class="resumen-subtotal">Subtotal: <span>$10.000</span></p>
-                            <h2 class="resumen-total">Total: <span>$10.000</span></h2>
-                        </div>
+                <div class="resumen">
+                    <h3>Resumen</h3>
+                    <div>
+                        <p class="resumen-subtotal">Subtotal: <span>$10.000</span></p>
+                        <h2 class="resumen-total">Total: <span>$10.000</span></h2>
+                    </div>
                 </div>
             </div>
 
@@ -61,40 +61,42 @@
                 <input id="finalizar" type="submit" value="FINALIZAR">
             </div>
         </form>
-        </div>
+    </div>
 
-        <div class="overlay-vaciar hidden" id="overlay-vaciar"></div>
-        <div id="alert-vaciar" class="contenedor-vaciar hidden">
-            <article class="vaciar-carrito">
-                <p>Estás por vaciar el carrito, ¿quieres continuar?</p>
-                <div class="contenedor-botones-vaciar">
-                    <button id="cancelar-vaciar">CANCELAR</button>
-                    <button id="vaciar">VACIAR</button>
-                </div>
-            </article>
-        </div>
-
-
-        <div class="overlay hidden" id="overlay"></div>
-        <aside id="carrito-lateral">
-            <div class="titulo-carrito">
-                <h1> Carrito </h1>
-                <i id="cerrar" class="fas fa-times"></i>
+    <div class="overlay-vaciar hidden" id="overlay-vaciar"></div>
+    <div id="alert-vaciar" class="contenedor-vaciar hidden">
+        <article class="vaciar-carrito">
+            <p>Estás por vaciar el carrito, ¿quieres continuar?</p>
+            <div class="contenedor-botones-vaciar">
+                <button id="cancelar-vaciar">CANCELAR</button>
+                <button id="vaciar">VACIAR</button>
             </div>
-            <div class="descripcion-compra"> 
-                <div>
-                    <p id="indicador-cantidad-productos">1 producto(s) agregado(s)</p>
-                </div>
-                <div id="contenedor-subtotal-botones">
-                    <p id="subtotal">Subtotal $10.000</p>
-                    <button id="boton-comprar">COMPRAR</button>
-                    <button id="boton-vaciar">VACIAR</button>
-                </div>
-            </div>
-        </aside>
-        
-        
+        </article>
+    </div>
 
+
+    <div class="overlay hidden" id="overlay"></div>
+    <aside id="carrito-lateral">
+        <div class="titulo-carrito">
+            <h1> Carrito </h1>
+            <i id="cerrar" class="fas fa-times"></i>
+        </div>
+        <div class="descripcion-compra">
+            <div>
+                <p id="indicador-cantidad-productos">1 producto(s) agregado(s)</p>
+            </div>
+            <div id="contenedor-subtotal-botones">
+                <p id="subtotal">Subtotal $10.000</p>
+                <button id="boton-comprar">COMPRAR</button>
+                <button id="boton-vaciar">VACIAR</button>
+            </div>
+        </div>
+    </aside>
+
+
+    <!---------------------------------- FIN CARRITO Y CHECKOUT  ------------------------------------------>
+
+    <!---------------------------------- BANNER  ------------------------------------------>
 
     <nav>
         <div>
@@ -108,10 +110,12 @@
         <h1>ELECTRÓNICA</h1>
     </header>
 
-    
+    <!----------------------------------  FIN BANNER  ------------------------------------------>
 
+    <!---------------------------------- SECCION FILTROS Y PRODUCTOS  ------------------------------------------>
 
-    <section>
+    <section class="contenedor-filtros-productos">
+        <!---------------------------------- FILTROS  ------------------------------------------>
         <aside class="contenedor-filtros">
             <div>
 
@@ -217,23 +221,34 @@
 
             </div>
         </aside>
+        <!----------------------------------  FIN FILTROS  ------------------------------------------>
+        <!---------------------------------- PRODUCTOS  ------------------------------------------>
+
         <div>
+            <!---------------------------------- BARRA CONTADORA DE PRODUCTOS  ------------------------------------------>
             <div class="indicador-productos">
                 <p>Mostrando 12 producto(s) de 12</p>
                 <div>
                     <p>Ver como </p>
-                    <button class="grilla"><i class="fas fa-th"></i></button>
-                    <button class="grilla"><i class="fas fa-list"></i></button>
+                    <button id="grilla" class="botones-grilla-lista"><i class="fas fa-th"></i></button>
+                    <button id="lista" class="botones-grilla-lista"><i class="fas fa-list"></i></button>
                 </div>
             </div>
-            <div class="contenedor-productos">
-                <article class="productos" data-nombre="apple-tv" data-rating="4" data-categoria="tv">
+            <!----------------------------------  FIN BARRA CONTADORA DE PRODUCTOS  ------------------------------------------>
+            <!---------------------------------- TARJETITAS  ------------------------------------------>
+            <div id="grilla-o-lista" class="grilla">
+                <article class="productos" data-nombre="apple-tv" data-rating="4" data-categoria="tv"
+                    data-precio="20000">
                     <div class="contenedor-imagen">
                         <img src="./productos/apple-tv.jpeg">
                     </div>
                     <div class="descripcion">
                         <h3>Apple TV</h3>
-                        <p>$2500</p>
+                        <p class="precio">$20.000</p>
+                        <p id="descripcion-producto" class="hidden descripcion-individual">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem
+                            perferendis perspiciatis itaque esse tempora sed repellat enim officiis, consectetur sit
+                            quia pariatur. Aut enim dignissimos doloremque culpa tenetur. Possimus, quasi.
+                        </p>
                         <div class="calificacion">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -241,17 +256,22 @@
                             <i class="fas fa-star"></i>
                             <i class="far fa-star"></i>
                         </div>
-                        <button>COMPRAR</button>
+                        <button class="boton-comprar-tarj">COMPRAR</button>
                     </div>
                 </article>
 
-                <article class="productos" data-nombre="beats wireless" data-rating="5" data-categoria="auriculares">
+                <article class="productos" data-nombre="beats wireless" data-rating="5" data-categoria="auriculares"
+                    data-precio="15000">
                     <div class="contenedor-imagen">
                         <img src="./productos/auris-beat.jpeg">
                     </div>
                     <div class="descripcion">
                         <h3>Beats Wireless</h3>
-                        <p>$2500</p>
+                        <p class="precio">$15.000</p>
+                        <p id="descripcion-producto" class="hidden descripcion-individual">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem
+                            perferendis perspiciatis itaque esse tempora sed repellat enim officiis, consectetur sit
+                            quia pariatur. Aut enim dignissimos doloremque culpa tenetur. Possimus, quasi.
+                        </p>
                         <div class="calificacion">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -259,17 +279,22 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-                        <button>COMPRAR</button>
+                        <button class="boton-comprar-tarj">COMPRAR</button>
                     </div>
                 </article>
 
-                <article class="productos" data-nombre="control playstation" data-rating="3" data-categoria="gaming">
+                <article class="productos" data-nombre="control playstation" data-rating="3" data-categoria="gaming"
+                    data-precio="17000">
                     <div class="contenedor-imagen">
                         <img src="./productos/control-play.jpeg">
                     </div>
                     <div class="descripcion">
                         <h3>Control PlayStation</h3>
-                        <p>$2500</p>
+                        <p class="precio">$17.000</p>
+                        <p id="descripcion-producto" class="hidden descripcion-individual">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem
+                            perferendis perspiciatis itaque esse tempora sed repellat enim officiis, consectetur sit
+                            quia pariatur. Aut enim dignissimos doloremque culpa tenetur. Possimus, quasi.
+                        </p>
                         <div class="calificacion">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -277,17 +302,22 @@
                             <i class="far fa-star"></i>
                             <i class="far fa-star"></i>
                         </div>
-                        <button>COMPRAR</button>
+                        <button class="boton-comprar-tarj">COMPRAR</button>
                     </div>
                 </article>
 
-                <article class="productos" data-nombre="airpods pro" data-rating="2" data-categoria="auriculares">
+                <article class="productos" data-nombre="airpods pro" data-rating="2" data-categoria="auriculares"
+                    data-precio="26000">
                     <div class="contenedor-imagen">
                         <img src="./productos/aurispro.jpeg">
                     </div>
                     <div class="descripcion">
                         <h3>AirPods Pro</h3>
-                        <p>$2500</p>
+                        <p class="precio">$26.000</p>
+                        <p id="descripcion-producto" class="hidden descripcion-individual">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem
+                            perferendis perspiciatis itaque esse tempora sed repellat enim officiis, consectetur sit
+                            quia pariatur. Aut enim dignissimos doloremque culpa tenetur. Possimus, quasi.
+                        </p>
                         <div class="calificacion">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -295,17 +325,22 @@
                             <i class="far fa-star"></i>
                             <i class="far fa-star"></i>
                         </div>
-                        <button>COMPRAR</button>
+                        <button class="boton-comprar-tarj">COMPRAR</button>
                     </div>
                 </article>
 
-                <article class="productos" data-nombre="control xbox" data-rating="4" data-categoria="gaming">
+                <article class="productos" data-nombre="control xbox" data-rating="4" data-categoria="gaming"
+                    data-precio="25000">
                     <div class="contenedor-imagen">
                         <img src="./productos/control-xbox.jpeg">
                     </div>
                     <div class="descripcion">
                         <h3>Control Xbox</h3>
-                        <p>$2500</p>
+                        <p class="precio">$25.000</p>
+                        <p id="descripcion-producto" class="hidden descripcion-individual">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem
+                            perferendis perspiciatis itaque esse tempora sed repellat enim officiis, consectetur sit
+                            quia pariatur. Aut enim dignissimos doloremque culpa tenetur. Possimus, quasi.
+                        </p>
                         <div class="calificacion">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -313,17 +348,22 @@
                             <i class="fas fa-star"></i>
                             <i class="far fa-star"></i>
                         </div>
-                        <button>COMPRAR</button>
+                        <button class="boton-comprar-tarj">COMPRAR</button>
                     </div>
                 </article>
 
-                <article class="productos" data-nombre="imac" data-rating="4" data-categoria="computadoras">
+                <article class="productos" data-nombre="imac" data-rating="4" data-categoria="computadoras"
+                    data-precio="100000">
                     <div class="contenedor-imagen">
                         <img src="./productos/imac.jpeg">
                     </div>
                     <div class="descripcion">
                         <h3>iMac</h3>
-                        <p>$2500</p>
+                        <p class="precio">$100.000</p>
+                        <p id="descripcion-producto" class="hidden descripcion-individual">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem
+                            perferendis perspiciatis itaque esse tempora sed repellat enim officiis, consectetur sit
+                            quia pariatur. Aut enim dignissimos doloremque culpa tenetur. Possimus, quasi.
+                        </p>
                         <div class="calificacion">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -331,17 +371,22 @@
                             <i class="fas fa-star"></i>
                             <i class="far fa-star"></i>
                         </div>
-                        <button>COMPRAR</button>
+                        <button class="boton-comprar-tarj">COMPRAR</button>
                     </div>
                 </article>
 
-                <article class="productos" data-nombre="ipad pro 12" data-rating="4" data-categoria="tabletas">
+                <article class="productos" data-nombre="ipad pro 12" data-rating="4" data-categoria="tabletas"
+                    data-precio="60000">
                     <div class="contenedor-imagen">
                         <img src="./productos/ipad-pro-12.png">
                     </div>
                     <div class="descripcion">
                         <h3>iPad Pro 12</h3>
-                        <p>$2500</p>
+                        <p class="precio">$60.000</p>
+                        <p id="descripcion-producto" class="hidden descripcion-individual">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem
+                            perferendis perspiciatis itaque esse tempora sed repellat enim officiis, consectetur sit
+                            quia pariatur. Aut enim dignissimos doloremque culpa tenetur. Possimus, quasi.
+                        </p>
                         <div class="calificacion">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -349,17 +394,22 @@
                             <i class="fas fa-star"></i>
                             <i class="far fa-star"></i>
                         </div>
-                        <button>COMPRAR</button>
+                        <button class="boton-comprar-tarj">COMPRAR</button>
                     </div>
                 </article>
 
-                <article class="productos" data-nombre="iphone xr" data-rating="4" data-categoria="celulares">
+                <article class="productos" data-nombre="iphone xr" data-rating="4" data-categoria="celulares"
+                    data-precio="50000">
                     <div class="contenedor-imagen">
                         <img src="./productos/iphone-xr.jpeg">
                     </div>
                     <div class="descripcion">
                         <h3>iPhone Xr</h3>
-                        <p>$2500</p>
+                        <p class="precio">$50.000</p>
+                        <p id="descripcion-producto" class="hidden descripcion-individual">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem
+                            perferendis perspiciatis itaque esse tempora sed repellat enim officiis, consectetur sit
+                            quia pariatur. Aut enim dignissimos doloremque culpa tenetur. Possimus, quasi.
+                        </p>
                         <div class="calificacion">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -367,17 +417,22 @@
                             <i class="fas fa-star"></i>
                             <i class="far fa-star"></i>
                         </div>
-                        <button>COMPRAR</button>
+                        <button class="boton-comprar-tarj">COMPRAR</button>
                     </div>
                 </article>
 
-                <article class="productos" data-nombre="iphone 11" data-rating="4" data-categoria="celulares">
+                <article class="productos" data-nombre="iphone 11" data-rating="4" data-categoria="celulares"
+                    data-precio="55000">
                     <div class="contenedor-imagen">
                         <img src="./productos/iphone11.jpeg">
                     </div>
                     <div class="descripcion">
                         <h3>iPhone 11</h3>
-                        <p>$2500</p>
+                        <p class="precio">$55.000</p>
+                        <p id="descripcion-producto" class="hidden descripcion-individual">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem
+                            perferendis perspiciatis itaque esse tempora sed repellat enim officiis, consectetur sit
+                            quia pariatur. Aut enim dignissimos doloremque culpa tenetur. Possimus, quasi.
+                        </p>
                         <div class="calificacion">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -385,17 +440,22 @@
                             <i class="fas fa-star"></i>
                             <i class="far fa-star"></i>
                         </div>
-                        <button>COMPRAR</button>
+                        <button class="boton-comprar-tarj">COMPRAR</button>
                     </div>
                 </article>
 
-                <article class="productos" data-nombre="macbook pro" data-rating="4" data-categoria="computadoras">
+                <article class="productos" data-nombre="macbook pro" data-rating="4" data-categoria="computadoras"
+                    data-precio="90000">
                     <div class="contenedor-imagen">
                         <img src="./productos/macbookpro.jpg">
                     </div>
                     <div class="descripcion">
                         <h3>MacBook Pro</h3>
-                        <p>$2500</p>
+                        <p class="precio">$90.000</p>
+                        <p id="descripcion-producto" class="hidden descripcion-individual">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem
+                            perferendis perspiciatis itaque esse tempora sed repellat enim officiis, consectetur sit
+                            quia pariatur. Aut enim dignissimos doloremque culpa tenetur. Possimus, quasi.
+                        </p>
                         <div class="calificacion">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -403,17 +463,22 @@
                             <i class="fas fa-star"></i>
                             <i class="far fa-star"></i>
                         </div>
-                        <button>COMPRAR</button>
+                        <button class="boton-comprar-tarj">COMPRAR</button>
                     </div>
                 </article>
 
-                <article class="productos" data-nombre="iwatch nike" data-rating="4" data-categoria="relojes">
+                <article class="productos" data-nombre="iwatch nike" data-rating="4" data-categoria="relojes"
+                    data-precio="35000">
                     <div class="contenedor-imagen">
                         <img src="./productos/reloj-nike.jpeg">
                     </div>
                     <div class="descripcion">
                         <h3>iWatch Nike</h3>
-                        <p>$2500</p>
+                        <p class="precio">$35.000</p>
+                        <p id="descripcion-producto" class="hidden descripcion-individual">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem
+                            perferendis perspiciatis itaque esse tempora sed repellat enim officiis, consectetur sit
+                            quia pariatur. Aut enim dignissimos doloremque culpa tenetur. Possimus, quasi.
+                        </p>
                         <div class="calificacion">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -421,17 +486,22 @@
                             <i class="fas fa-star"></i>
                             <i class="far fa-star"></i>
                         </div>
-                        <button>COMPRAR</button>
+                        <button class="boton-comprar-tarj">COMPRAR</button>
                     </div>
                 </article>
 
-                <article class="productos" data-nombre="iwatch series 3" data-rating="4" data-categoria="relojes">
+                <article class="productos" data-nombre="iwatch series 3" data-rating="4" data-categoria="relojes"
+                    data-precio="35000">
                     <div class="contenedor-imagen">
                         <img src="./productos/reloj3.jpeg">
                     </div>
                     <div class="descripcion">
                         <h3>iWatch Series 3</h3>
-                        <p>$2500</p>
+                        <p class="precio">$35.000</p>
+                        <p id="descripcion-producto" class="hidden descripcion-individual">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem
+                            perferendis perspiciatis itaque esse tempora sed repellat enim officiis, consectetur sit
+                            quia pariatur. Aut enim dignissimos doloremque culpa tenetur. Possimus, quasi.
+                        </p>
                         <div class="calificacion">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -439,17 +509,23 @@
                             <i class="fas fa-star"></i>
                             <i class="far fa-star"></i>
                         </div>
-                        <button>COMPRAR</button>
+                        <button class="boton-comprar-tarj">COMPRAR</button>
                     </div>
                 </article>
             </div>
+            <!---------------------------------- FIN TARJETITAS  ------------------------------------------>
         </div>
+        <!---------------------------------- FIN PRODUCTOS  ------------------------------------------>
 
     </section>
+
+    <!---------------------------------- FOOTER  ------------------------------------------>
 
     <footer>
         <p class="saludo">ADA SHOP - Gracias por visitarnos 💚</p>
     </footer>
+
+    <!---------------------------------- FIN FOOTER  ------------------------------------------>
 
     <script src="index.js"></script>
 </body>

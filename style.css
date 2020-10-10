@@ -344,6 +344,7 @@ button {
 
 /*------------------------------------------------- FIN ALERT VACIAR -------------------------------*/
 
+/*---------------------------------- BANNER --------------------------------*/
 
 header {
     height: 400px;
@@ -372,7 +373,9 @@ header > h1 {
     z-index: 1;
 }
 
+/*----------------------------------  FIN BANNER --------------------------------*/
 
+/*---------------------------------- FOOTER --------------------------------*/
 
 footer {
     background-color:#CBC0D3;
@@ -384,11 +387,17 @@ footer {
     margin: 40px 0;
 }
 
-section {
+/*---------------------------------- FIN FOOTER --------------------------------*/
+
+/*---------------------------------- FILTROS Y PRODUCTOS --------------------------------*/
+
+.contenedor-filtros-productos {
     display: flex;
     background-color:#FEEAFA;
-    padding: 60px 100px;
+    padding: 60px 150px;
 }
+
+/*------------------- FILTROS ------------------*/
 
 .contenedor-filtros {
     background-color: #FEEAFA;
@@ -508,33 +517,37 @@ input {
     margin-left: 5px;
 }
 
+/*------------------- FIN FILTROS ------------------*/
+
+/*------------------- PRODUCTOS ------------------*/
 
 section > div {
     flex: 9;
 }
 
+/*----------- CONTADOR PRODUCTOS --------*/
+
 .indicador-productos {
     background-color: white;
     display: flex;
     justify-content: space-between;
-    margin: 15px;
+    margin: 10px;
     font-size: 13px;
     font-weight: 300;
     color: #3e434b;
-    width: 1110px;
 }
 
 .indicador-productos > p {
     margin: 40px 25px;
 }
 
-.grilla {
+.botones-grilla-lista {
     
     background: transparent;
     cursor: pointer;
 }
 
-.grilla > i {
+.botones-grilla-lista > i {
     margin: 0px;
 }
 
@@ -545,23 +558,24 @@ section > div {
     margin: 20px;
 }
 
+/*----------- FIN CONTADOR PRODUCTOS --------*/
 
-.contenedor-productos {
+/*----------- TARJETITAS --------*/
+.grilla {
     display: flex;
     flex-wrap: wrap;
     align-content: center;
-    
 }
 
-.productos {
-    height: 500px;
-    width: 290px;
+.grilla .productos {
+    height: 450px;
+    width: 294px;
     background-color:white;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 15px;
-    padding: 5px 30px;
+    margin: 10px;
+    padding: 5px 20px;
     transition: .2s ease-out;  
 }
 
@@ -578,28 +592,25 @@ img:hover {
     transform: scale(1.5);
 }
 
-.contenedor-imagen {
-    height: 60%;
+.grilla .productos > .contenedor-imagen {
+    height: 50%;
     margin: 20px;
     overflow: hidden;
-    
 }
 
-
-
-.descripcion {
+.grilla .productos > .descripcion {
     display: flex;
     flex-direction: column;
     height: 40%;
     align-items: center;
 }
 
-.descripcion > p {
-    margin: 10px;
+.grilla .productos > .descripcion > .precio {
+    margin: 10px 0;
     font-size: 12px;
 }
 
-.descripcion > button {
+.grilla .productos > .descripcion > .boton-comprar-tarj {
     width: 250px;
     height: 45px;
     border: 1px solid transparent;
@@ -612,7 +623,7 @@ img:hover {
     color: #3e434b;
 }
 
-.descripcion > button:hover {
+.boton-comprar-tarj:hover {
     background: #f2f2f2;
 }
 
@@ -636,3 +647,70 @@ button:focus {
 .hidden {
     display: none;
 }
+
+/*-- paso de trarjetas a grilla --*/
+
+.lista {
+    display: block;
+}
+
+.lista .productos > .descripcion > .precio {
+    margin: 0;
+    color: #CBC0D3;
+    font-size: 12px;
+}
+
+.lista .productos {
+    height: 320px;
+    width: auto;
+    background-color:white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    transition: .2s ease-out; 
+}
+
+.lista .productos > .contenedor-imagen {
+    height: 90%;
+    min-width: 300px;
+    overflow: hidden;
+    margin: 20px;
+}
+
+.lista .productos > .descripcion {
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin: 0 10px;
+}
+
+.lista .productos > .descripcion > .descripcion-individual {
+    font-size: 15px;
+    margin: 0;
+    display: block;
+}
+
+.lista .productos > .descripcion > .boton-comprar-tarj {
+    margin-top: 5px;
+    width: 150px;
+    height: 45px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    background: whitesmoke;
+    font-size: 14px;
+    font-weight: 500;
+    cursor:pointer;
+    color: #3e434b;
+}
+
+
+
+/*----------- FIN TARJETITAS --------*/
+
+/*------------------- FIN PRODUCTOS ------------------*/
+
+/*---------------------------------- FIN FILTROS Y PRODUCTOS --------------------------------*/

@@ -13,7 +13,7 @@
 
 <body>
 
-    <!---------------------------------- CARRITO Y CHEECKOUT  ------------------------------------------>
+    <!---------------------------------- CARRITO Y CHECKOUT  ------------------------------------------>
     <div class="overlay-checkout hidden" id="overlay-checkout"></div>
     <div id="checkout" class="contenedor-checkout hidden">
         <form id="checkout-menu">
@@ -50,7 +50,7 @@
                 <div class="resumen">
                     <h3>Resumen</h3>
                     <div>
-                        <p class="resumen-subtotal">Subtotal: <span>$10.000</span></p>
+                        <p class="resumen-subtotal">Subtotal: <span>$<span id="subtotal-checkout"></span></span></p>
                         <h2 class="resumen-total">Total: <span>$10.000</span></h2>
                     </div>
                 </div>
@@ -83,10 +83,13 @@
         </div>
         <div class="descripcion-compra">
             <div>
-                <p id="indicador-cantidad-productos">1 producto(s) agregado(s)</p>
+                <p id="indicador-cantidad-productos"></p>
+                <div id="espacio-para-productos">
+                    
+                </div>
             </div>
             <div id="contenedor-subtotal-botones">
-                <p id="subtotal">Subtotal $10.000</p>
+                <p>Subtotal $<span id="subtotal"></span></p>
                 <button id="boton-comprar">COMPRAR</button>
                 <button id="boton-vaciar">VACIAR</button>
             </div>
@@ -96,21 +99,21 @@
 
     <!---------------------------------- FIN CARRITO Y CHECKOUT  ------------------------------------------>
 
-    <!---------------------------------- BANNER  ------------------------------------------>
+    <!---------------------------------- BARRA DE NAV Y BANNER  ------------------------------------------>
 
     <nav>
         <div>
             <p class="nombre-pagina">ADA SHOP</p>
         </div>
         <div>
-            <button id="carrito" class="carrito"><i class="fas fa-shopping-cart"></i> Carrito (0 items)</button>
+            <button id="carrito" class="carrito"><i class="fas fa-shopping-cart"></i> Carrito (<span id="cantidad-en-carrito">0</span>     items)</button>
         </div>
     </nav>
     <header>
         <h1>ELECTRÓNICA</h1>
     </header>
 
-    <!----------------------------------  FIN BANNER  ------------------------------------------>
+    <!----------------------------------  FIN BARRA DE NAV Y BANNER  ------------------------------------------>
 
     <!---------------------------------- SECCION FILTROS Y PRODUCTOS  ------------------------------------------>
 
@@ -227,7 +230,7 @@
         <div>
             <!---------------------------------- BARRA CONTADORA DE PRODUCTOS  ------------------------------------------>
             <div class="indicador-productos">
-                <p>Mostrando 12 producto(s) de 12</p>
+                <p>Mostrando <span id="cantidad-productos-mostrados">12</span> producto(s) de 12</p>
                 <div>
                     <p>Ver como </p>
                     <button id="grilla" class="botones-grilla-lista"><i class="fas fa-th"></i></button>
@@ -237,14 +240,14 @@
             <!----------------------------------  FIN BARRA CONTADORA DE PRODUCTOS  ------------------------------------------>
             <!---------------------------------- TARJETITAS  ------------------------------------------>
             <div id="grilla-o-lista" class="grilla">
-                <article class="productos" data-nombre="apple-tv" data-rating="4" data-categoria="tv"
-                    data-precio="20000">
+                <article class="productos" data-nombre="Apple TV" data-rating="4" data-categoria="tv"
+                    data-precio="20000" data-img="./productos/apple-tv.jpeg">
                     <div class="contenedor-imagen">
-                        <img src="./productos/apple-tv.jpeg">
+                        <img class="img-tarj" src="./productos/apple-tv.jpeg">
                     </div>
                     <div class="descripcion">
                         <h3>Apple TV</h3>
-                        <p class="precio">$20.000</p>
+                        <p class="precio">$20000</p>
                         <p id="descripcion-producto" class="hidden descripcion-individual">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem
                             perferendis perspiciatis itaque esse tempora sed repellat enim officiis, consectetur sit
                             quia pariatur. Aut enim dignissimos doloremque culpa tenetur. Possimus, quasi.
@@ -256,18 +259,18 @@
                             <i class="fas fa-star"></i>
                             <i class="far fa-star"></i>
                         </div>
-                        <button class="boton-comprar-tarj">COMPRAR</button>
+                        <button data-nombre="appletv" class="boton-comprar-tarj">COMPRAR</button>
                     </div>
                 </article>
 
-                <article class="productos" data-nombre="beats wireless" data-rating="5" data-categoria="auriculares"
-                    data-precio="15000">
+                <article class="productos" data-nombre="Beats Wireless" data-rating="5" data-categoria="auriculares"
+                    data-precio="15000" data-img="./productos/auris-beat.jpeg">
                     <div class="contenedor-imagen">
-                        <img src="./productos/auris-beat.jpeg">
+                        <img class="img-tarj" src="./productos/auris-beat.jpeg">
                     </div>
                     <div class="descripcion">
                         <h3>Beats Wireless</h3>
-                        <p class="precio">$15.000</p>
+                        <p class="precio">$15000</p>
                         <p id="descripcion-producto" class="hidden descripcion-individual">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem
                             perferendis perspiciatis itaque esse tempora sed repellat enim officiis, consectetur sit
                             quia pariatur. Aut enim dignissimos doloremque culpa tenetur. Possimus, quasi.
@@ -283,14 +286,14 @@
                     </div>
                 </article>
 
-                <article class="productos" data-nombre="control playstation" data-rating="3" data-categoria="gaming"
-                    data-precio="17000">
+                <article class="productos" data-nombre="Control Playstation" data-rating="3" data-categoria="gaming"
+                    data-precio="17000" data-img="./productos/control-play.jpeg">
                     <div class="contenedor-imagen">
-                        <img src="./productos/control-play.jpeg">
+                        <img class="img-tarj" src="./productos/control-play.jpeg">
                     </div>
                     <div class="descripcion">
                         <h3>Control PlayStation</h3>
-                        <p class="precio">$17.000</p>
+                        <p class="precio">$17000</p>
                         <p id="descripcion-producto" class="hidden descripcion-individual">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem
                             perferendis perspiciatis itaque esse tempora sed repellat enim officiis, consectetur sit
                             quia pariatur. Aut enim dignissimos doloremque culpa tenetur. Possimus, quasi.
@@ -306,14 +309,14 @@
                     </div>
                 </article>
 
-                <article class="productos" data-nombre="airpods pro" data-rating="2" data-categoria="auriculares"
-                    data-precio="26000">
+                <article class="productos" data-nombre="AirPods Pro" data-rating="2" data-categoria="auriculares"
+                    data-precio="26000" data-img="./productos/aurispro.jpeg">
                     <div class="contenedor-imagen">
-                        <img src="./productos/aurispro.jpeg">
+                        <img class="img-tarj" src="./productos/aurispro.jpeg">
                     </div>
                     <div class="descripcion">
                         <h3>AirPods Pro</h3>
-                        <p class="precio">$26.000</p>
+                        <p class="precio">$26000</p>
                         <p id="descripcion-producto" class="hidden descripcion-individual">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem
                             perferendis perspiciatis itaque esse tempora sed repellat enim officiis, consectetur sit
                             quia pariatur. Aut enim dignissimos doloremque culpa tenetur. Possimus, quasi.
@@ -329,14 +332,14 @@
                     </div>
                 </article>
 
-                <article class="productos" data-nombre="control xbox" data-rating="4" data-categoria="gaming"
-                    data-precio="25000">
+                <article class="productos" data-nombre="Control Xbox" data-rating="4" data-categoria="gaming"
+                    data-precio="25000" data-img="./productos/control-xbox.jpeg">
                     <div class="contenedor-imagen">
-                        <img src="./productos/control-xbox.jpeg">
+                        <img class="img-tarj" src="./productos/control-xbox.jpeg">
                     </div>
                     <div class="descripcion">
                         <h3>Control Xbox</h3>
-                        <p class="precio">$25.000</p>
+                        <p class="precio">$25000</p>
                         <p id="descripcion-producto" class="hidden descripcion-individual">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem
                             perferendis perspiciatis itaque esse tempora sed repellat enim officiis, consectetur sit
                             quia pariatur. Aut enim dignissimos doloremque culpa tenetur. Possimus, quasi.
@@ -352,14 +355,14 @@
                     </div>
                 </article>
 
-                <article class="productos" data-nombre="imac" data-rating="4" data-categoria="computadoras"
-                    data-precio="100000">
+                <article class="productos" data-nombre="iMac" data-rating="4" data-categoria="computadoras"
+                    data-precio="100000" data-img="./productos/imac.jpeg">
                     <div class="contenedor-imagen">
-                        <img src="./productos/imac.jpeg">
+                        <img class="img-tarj" src="./productos/imac.jpeg">
                     </div>
                     <div class="descripcion">
                         <h3>iMac</h3>
-                        <p class="precio">$100.000</p>
+                        <p class="precio">$100000</p>
                         <p id="descripcion-producto" class="hidden descripcion-individual">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem
                             perferendis perspiciatis itaque esse tempora sed repellat enim officiis, consectetur sit
                             quia pariatur. Aut enim dignissimos doloremque culpa tenetur. Possimus, quasi.
@@ -375,14 +378,14 @@
                     </div>
                 </article>
 
-                <article class="productos" data-nombre="ipad pro 12" data-rating="4" data-categoria="tabletas"
-                    data-precio="60000">
+                <article class="productos" data-nombre="iPad Pro 12" data-rating="4" data-categoria="tabletas"
+                    data-precio="60000" data-img="./productos/ipad-pro-12.png">
                     <div class="contenedor-imagen">
-                        <img src="./productos/ipad-pro-12.png">
+                        <img class="img-tarj" src="./productos/ipad-pro-12.png">
                     </div>
                     <div class="descripcion">
                         <h3>iPad Pro 12</h3>
-                        <p class="precio">$60.000</p>
+                        <p class="precio">$60000</p>
                         <p id="descripcion-producto" class="hidden descripcion-individual">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem
                             perferendis perspiciatis itaque esse tempora sed repellat enim officiis, consectetur sit
                             quia pariatur. Aut enim dignissimos doloremque culpa tenetur. Possimus, quasi.
@@ -398,14 +401,14 @@
                     </div>
                 </article>
 
-                <article class="productos" data-nombre="iphone xr" data-rating="4" data-categoria="celulares"
-                    data-precio="50000">
+                <article class="productos" data-nombre="iPhone Xr" data-rating="4" data-categoria="celulares"
+                    data-precio="50000" data-img="./productos/iphone-xr.jpeg">
                     <div class="contenedor-imagen">
-                        <img src="./productos/iphone-xr.jpeg">
+                        <img class="img-tarj" src="./productos/iphone-xr.jpeg">
                     </div>
                     <div class="descripcion">
                         <h3>iPhone Xr</h3>
-                        <p class="precio">$50.000</p>
+                        <p class="precio">$50000</p>
                         <p id="descripcion-producto" class="hidden descripcion-individual">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem
                             perferendis perspiciatis itaque esse tempora sed repellat enim officiis, consectetur sit
                             quia pariatur. Aut enim dignissimos doloremque culpa tenetur. Possimus, quasi.
@@ -421,14 +424,14 @@
                     </div>
                 </article>
 
-                <article class="productos" data-nombre="iphone 11" data-rating="4" data-categoria="celulares"
-                    data-precio="55000">
+                <article class="productos" data-nombre="iPhone 11" data-rating="4" data-categoria="celulares"
+                    data-precio="55000" data-img="./productos/iphone11.jpeg">
                     <div class="contenedor-imagen">
-                        <img src="./productos/iphone11.jpeg">
+                        <img class="img-tarj" src="./productos/iphone11.jpeg">
                     </div>
                     <div class="descripcion">
                         <h3>iPhone 11</h3>
-                        <p class="precio">$55.000</p>
+                        <p class="precio">$55000</p>
                         <p id="descripcion-producto" class="hidden descripcion-individual">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem
                             perferendis perspiciatis itaque esse tempora sed repellat enim officiis, consectetur sit
                             quia pariatur. Aut enim dignissimos doloremque culpa tenetur. Possimus, quasi.
@@ -444,14 +447,14 @@
                     </div>
                 </article>
 
-                <article class="productos" data-nombre="macbook pro" data-rating="4" data-categoria="computadoras"
-                    data-precio="90000">
+                <article class="productos" data-nombre="MacBook Pro" data-rating="4" data-categoria="computadoras"
+                    data-precio="90000" data-img="./productos/macbookpro.jpg">
                     <div class="contenedor-imagen">
-                        <img src="./productos/macbookpro.jpg">
+                        <img class="img-tarj" src="./productos/macbookpro.jpg">
                     </div>
                     <div class="descripcion">
                         <h3>MacBook Pro</h3>
-                        <p class="precio">$90.000</p>
+                        <p class="precio">$90000</p>
                         <p id="descripcion-producto" class="hidden descripcion-individual">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem
                             perferendis perspiciatis itaque esse tempora sed repellat enim officiis, consectetur sit
                             quia pariatur. Aut enim dignissimos doloremque culpa tenetur. Possimus, quasi.
@@ -467,14 +470,14 @@
                     </div>
                 </article>
 
-                <article class="productos" data-nombre="iwatch nike" data-rating="4" data-categoria="relojes"
-                    data-precio="35000">
+                <article class="productos" data-nombre="Iwatch Nike" data-rating="4" data-categoria="relojes"
+                    data-precio="35000" data-img="./productos/reloj-nike.jpeg">
                     <div class="contenedor-imagen">
-                        <img src="./productos/reloj-nike.jpeg">
+                        <img class="img-tarj" src="./productos/reloj-nike.jpeg">
                     </div>
                     <div class="descripcion">
                         <h3>iWatch Nike</h3>
-                        <p class="precio">$35.000</p>
+                        <p class="precio">$35000</p>
                         <p id="descripcion-producto" class="hidden descripcion-individual">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem
                             perferendis perspiciatis itaque esse tempora sed repellat enim officiis, consectetur sit
                             quia pariatur. Aut enim dignissimos doloremque culpa tenetur. Possimus, quasi.
@@ -490,14 +493,14 @@
                     </div>
                 </article>
 
-                <article class="productos" data-nombre="iwatch series 3" data-rating="4" data-categoria="relojes"
-                    data-precio="35000">
+                <article class="productos" data-nombre="Iwatch Series 3" data-rating="4" data-categoria="relojes"
+                    data-precio="35000" data-img="./productos/reloj3.jpeg">
                     <div class="contenedor-imagen">
-                        <img src="./productos/reloj3.jpeg">
+                        <img class="img-tarj" src="./productos/reloj3.jpeg">
                     </div>
                     <div class="descripcion">
                         <h3>iWatch Series 3</h3>
-                        <p class="precio">$35.000</p>
+                        <p class="precio">$35000</p>
                         <p id="descripcion-producto" class="hidden descripcion-individual">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem
                             perferendis perspiciatis itaque esse tempora sed repellat enim officiis, consectetur sit
                             quia pariatur. Aut enim dignissimos doloremque culpa tenetur. Possimus, quasi.

@@ -28,6 +28,14 @@ button {
     font-weight: 300;
 }
 
+.carrito {
+    margin-left: 60px;
+    border: 1px solid transparent;
+    background: transparent;
+    cursor: pointer;
+    color: #3e434b;
+}
+
 .carrito > i {
     margin-right: 5px;
 }
@@ -269,6 +277,59 @@ button {
 
 /*---------------------------------- FIN CHECKOUT ------------------------------------*/
 
+/*---------------------------------- PRODUCTO EN CARRITO ------------------------------*/
+.contenedor-producto-carrito {
+    display: flex;
+    padding-top: 15px;
+}
+
+.contenedor-img-carrito {
+    height: 110px;
+    width: 30%;
+    margin-right: 10px;
+}
+
+.img-carrito {
+    height: 100%;
+}
+
+.contenedor-descripcion-carrito {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 20px 10px;
+    width: 70%;
+}
+
+.linea-superior-descripcion, .linea-inferior-descripcion{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.boton-tacho {
+    background-color: transparent;
+}
+
+.tacho {
+    color: red;
+    font-size: 20px;
+    margin: 0;
+}
+
+.cantidad-productos {
+    width: 30px;
+    padding: 4px;
+    text-align: center;
+}
+
+.medida-productos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
 /*---------------------------------- ALERT VACIAR CARRITO ------------------------------*/
 
 .overlay-vaciar {
@@ -307,6 +368,7 @@ button {
 .vaciar-carrito > p {
     font-size: 32px;
     font-weight: 800;
+    margin-bottom: 10px;
 }
 
 .contenedor-botones-vaciar {
@@ -372,6 +434,7 @@ header > h1 {
     color: white;
     z-index: 1;
 }
+
 
 /*----------------------------------  FIN BANNER --------------------------------*/
 
@@ -502,7 +565,7 @@ input {
     color:#CBC0D3;
 }
 
-.limpiar, .carrito {
+.limpiar {
     display: flex;
     align-items: center;
     margin-left: 60px;
@@ -588,8 +651,8 @@ img {
     transition: 0.2s ease-out;
 }
 
-img:hover {
-    transform: scale(1.5);
+.img-tarj:hover {
+    transform: scale(1.2);
 }
 
 .grilla .productos > .contenedor-imagen {
@@ -642,6 +705,10 @@ button:focus {
     margin: 2px;
     font-size: 12px;
     color: #CBC0D3;
+}
+
+.hidden-tarjetas {
+    display: none !important;
 }
 
 .hidden {

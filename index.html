@@ -31,27 +31,30 @@
 
                     <h3 class="opciones"> Opciones de Pago </h3>
                     <label>
-                        <input type="radio" value="efectivo/debito" name="modo de pago"> Efectivo/Débito
+                        <input class="opcionesDePago" id="efectivo" type="radio" value="efectivo/debito" name="modo de pago"> Efectivo/Débito
                     </label>
 
                     <label>
-                        <input type="radio" value="tarjeta de credito" name="modo de pago"> Tarjeta de Crédito
+                        <input class="opcionesDePago" id="credito" type="radio" value="tarjeta de credito" name="modo de pago"> Tarjeta de Crédito
                     </label>
 
                     <label>
-                        <input type="checkbox" value="quiere envio" name="envio"> Necesito Envío
+                        <input class="opcionesDePago" id="envioCheck" type="checkbox" value="quiere envio" name="envio"> Necesito Envío
                     </label>
 
                     <label>
-                        <input type="checkbox" value="tiene descuento" name="descuento"> Tengo Tarjeta de Descuento
+                        <input class="opcionesDePago" id="descuentoCheck" type="checkbox" value="tiene descuento" name="descuento"> Tengo Tarjeta de Descuento
                     </label>
                 </div>
 
                 <div class="resumen">
                     <h3>Resumen</h3>
                     <div>
-                        <p class="resumen-subtotal">Subtotal: <span>$<span id="subtotal-checkout"></span></span></p>
-                        <h2 class="resumen-total">Total: <span>$10.000</span></h2>
+                        <p class="resumen-subtotal">Subtotal <span>$<span id="subtotal-checkout"></span></span></p>
+                        <p class="descuento hidden">Descuento <span>$<span id="descuento"></span></span></p>
+                        <p class="envio hidden">Envio <span>$<span id="envio"></span></span></p>
+                        <p class="recargo hidden">Recargo <span>$<span id="recargo"></span></span></p>
+                        <h2 class="resumen-total">Total: <span>$<span id="total"></span></span></h2>
                     </div>
                 </div>
             </div>

@@ -183,6 +183,8 @@ botonCarrito.onclick = () => {
   calcularSubtotal()
 
   borrarProductoDeCarrito()
+
+  aumentarCantidadDeProducto()
 };
 
 botonCerrarMenu.onclick = () => {
@@ -201,6 +203,8 @@ const botonSeguirComprando = document.getElementById("seguir");
 botonComprar.onclick = () => {
   menuCheckout.classList.remove("hidden");
   overlayCheckout.classList.remove("hidden");
+
+  totalCheckout()
 };
 
 botonSeguirComprando.onclick = () => {
@@ -339,6 +343,8 @@ const calcularSubtotal = () => {
   }
   subtotalEnCarrito.textContent = subtotal
   subtotalEnCheckout.textContent = subtotal
+
+  return subtotal
 };
 
 const crearProductosEnCarrito = () => {
@@ -359,6 +365,20 @@ const crearProductosEnCarrito = () => {
     
   }
 }
+const aumentarCantidadDeProducto = () => {
+  const inputsCantidadProducto = document.querySelectorAll(
+    ".cantidad-productos"
+  );
+  for (let input of inputsCantidadProducto) {
+    subtotal = 0 
+    input.oninput = () => {
+      subtotal = subtotal + (input.value * Number(input.dataset.precio))
+
+      recalcularSubtotal()
+    }
+    
+  }
+}
 
 const borrarProductoDeCarrito = () => {
   const botonesBorrarProductoEspecifico = document.querySelectorAll(".boton-tacho")
@@ -371,17 +391,20 @@ const borrarProductoDeCarrito = () => {
       const nombre = tarjeta.dataset.nombre
       
       recalcularProductosEnCarrito(nombre)
-      
 
       tarjeta.innerHTML = eliminarTarjetasDeCarrito()
+
+      recalcularSubtotal()
     }
   }
 }
 
 const recalcularSubtotal = () => {
+  
   const inputsCantidadProducto = document.querySelectorAll(
     ".cantidad-productos"
   );
+  console.log(inputsCantidadProducto)
   subtotal = 0
   for (let input of inputsCantidadProducto) {
     subtotal = subtotal + (input.value * Number(input.dataset.precio))
@@ -403,3 +426,90 @@ const recalcularProductosEnCarrito = (nombre) => {
   }
   calcularProductosEnCarrito()
 }
+
+/* ------------------------------------- CALCULAR TOTAL EN CHECKOUT -------------------------------- */
+
+
+const recargo = document.querySelector("#recargo")
+const descuento = document.querySelector("#descuento")
+const envio = document.querySelector("#envio")
+const total = document.querySelector("#total")
+
+const indicadorDescuento = document.querySelector(".descuento")
+const indicadorEnvio = document.querySelector(".envio")
+const indicadorRecargo = document.querySelector(".recargo")
+
+console.log(indicadorDescuento)
+const opcionesDePago = document.querySelectorAll(".opcionesDePago")
+
+const efectivo = document.querySelector("#efectivo")
+const credito = document.querySelector("#credito")
+const envioOpcion = document.querySelector("#envioCheck")
+const tarjetaDescuento = document.querySelector("#descuentoCheck")
+ 
+
+
+const totalCheckout = () => {
+  console.log(subtotalEnCheckout.textContent)
+  let subtotalNumero = Number(subtotalEnCheckout.textContent)
+  total.textContent = subtotalNumero
+  for (let opcion of opcionesDePago) {
+    opcion.oninput = () => {
+        calcularTotal(subtotalNumero)
+    }
+  }
+}
+
+const calcularTotal = (subtotalNumero) => {
+  let totalReal = subtotalNumero
+  totalReal = subtotalNumero + recargoTarjeta(subtotalNumero) + recargoEnvio() + aplicarDescuento(subtotalNumero) 
+  total.textContent = totalReal
+  return totalReal
+}
+
+let resultadoRecargo 
+
+const recargoTarjeta = (subtotalNumero) => {
+  if (credito.checked) {
+    resultadoRecargo = subtotalNumero * 0.1 
+    console.log(resultadoRecargo)
+    recargo.textContent = resultadoRecargo
+    indicadorRecargo.classList.remove("hidden")
+  }
+else {
+    resultadoRecargo = 0
+    indicadorRecargo.classList.add("hidden")
+  }
+    return resultadoRecargo
+}
+
+let resultadoEnvio
+
+const recargoEnvio = () => {
+  if (envioOpcion.checked) {
+    resultadoEnvio =  300
+    envio.textContent = resultadoEnvio
+    indicadorEnvio.classList.remove("hidden")
+  }
+  else {
+    resultadoEnvio = 0
+    indicadorEnvio.classList.add("hidden")
+  }
+  return resultadoEnvio
+}
+
+let resultadoDescuento
+
+const aplicarDescuento = (subtotalNumero) => {
+  if (tarjetaDescuento.checked) {
+    resultadoDescuento = - subtotalNumero * 0.05
+    descuento.textContent = resultadoDescuento
+    indicadorDescuento.classList.remove("hidden")
+  }
+  else {
+    resultadoDescuento = 0
+    indicadorDescuento.classList.add("hidden")
+  }
+  return resultadoDescuento
+}
+

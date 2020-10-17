@@ -122,9 +122,11 @@
 
     <section class="contenedor-filtros-productos">
         <!---------------------------------- FILTROS  ------------------------------------------>
-        <aside class="contenedor-filtros">
+        <aside id="contenedor-filtros" class="contenedor-filtros">
             <div>
-
+                <div class="contenedor-cerrar">
+                    <button id="cerrar-filtros" class="cerrar-filtros"><i id="cerrar-filtros" class="fas fa-times"></i> </button>
+                </div>
                 <div class="titulo-filtros">
                     <h1>FILTROS</h1>
                     <button class="limpiar"> <i class="fas fa-trash-alt"></i>Limpiar </button>
@@ -235,9 +237,10 @@
             <div class="indicador-productos">
                 <p>Mostrando <span id="cantidad-productos-mostrados">12</span> producto(s) de 12</p>
                 <div>
-                    <p>Ver como </p>
+                    <p class="opciones-para-ver">Ver como </p>
                     <button id="grilla" class="botones-grilla-lista"><i class="fas fa-th"></i></button>
                     <button id="lista" class="botones-grilla-lista"><i class="fas fa-list"></i></button>
+                    <button id="filtros" class="boton-filtros"><i class="fas fa-filter"></i> Filtros</button>
                 </div>
             </div>
             <!----------------------------------  FIN BARRA CONTADORA DE PRODUCTOS  ------------------------------------------>

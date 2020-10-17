@@ -152,7 +152,7 @@ const limpiar = document.querySelector(".limpiar");
 limpiar.onclick = () => {
   filtroBusqueda.value = "";
   for (let producto of productos) {
-    producto.classList.remove("hidden");
+    producto.classList.remove("hidden-tarjetas");
   }
   for (let checkbox of filtroRating) {
     checkbox.checked = false;
@@ -354,8 +354,9 @@ const crearProductosEnCarrito = () => {
   if (productosSeleccionados.length === 0) {
     indicadorProductosAgregados.textContent =
       "No tienes productos en el carrito, ¡agrega algunos!";
+    subYBotones.classList.add("hidden")
   } else {
-    
+    subYBotones.classList.remove("hidden")
     todosLosProductosEnHTML = " ";
     for (let producto of productosSeleccionados) {
       todosLosProductosEnHTML =
@@ -513,3 +514,23 @@ const aplicarDescuento = (subtotalNumero) => {
   return resultadoDescuento
 }
 
+/*------------------------------------------- FUNCIONALIDADES MEDIA QUERY -----------------------------*/
+
+
+/*------- MOSTRAR FILTROS ----------*/
+
+const botonMostrarFiltros = document.getElementById("filtros")
+const contenedorFiltros = document.getElementById("contenedor-filtros")
+const botonCerrarFiltros = document.getElementById("cerrar-filtros") 
+
+botonMostrarFiltros.onclick = () => {
+  contenedorFiltros.classList.add("mostrar-filtros")
+  overlay.classList.remove("hidden");
+  document.body.classList.add("no-scroll");
+}
+
+botonCerrarFiltros.onclick = () => {
+  contenedorFiltros.classList.remove("mostrar-filtros")
+  overlay.classList.add("hidden");
+  document.body.classList.remove("no-scroll");
+}

@@ -251,21 +251,22 @@ botonVaciar.onclick = () => {
 
 botonCancelar.onclick = () => {
   overlayVaciar.classList.add("hidden");
+  alertVaciar.classList.add("hidden");
   menuLateral.setAttribute('aria-hidden', false)
   alertVaciar.setAttribute('aria-hidden', true)
   recuperarTabindex(elementosFocuseablesCarrito)
-  alertVaciar.classList.add("hidden");
+  
 };
 
 botonConfirmarVaciar.onclick = () => {
   overlayVaciar.classList.add("hidden");
   menuLateral.setAttribute('aria-hidden', false)
-  recuperarTabindex(elementosFocuseablesCarrito)
   alertVaciar.classList.add("hidden");
   eliminarProductos()
   indicadorProductosAgregados.textContent =
     "No tienes productos en el carrito, ¡agrega algunos!";
   subYBotones.classList.add("hidden");
+  recuperarTabindex(elementosFocuseablesCarrito)
 };
 
 const eliminarProductos = () => {

@@ -15,35 +15,35 @@
 
     <!---------------------------------- CARRITO Y CHECKOUT  ------------------------------------------>
     <div class="overlay-checkout hidden" id="overlay-checkout"></div>
-    <div id="checkout" class="contenedor-checkout hidden">
+    <div id="checkout" class="contenedor-checkout hidden" aria-labelledby="titulo-checkout" aria-hidden="true">
         <form id="checkout-menu">
-            <h2>Checkout</h2>
+            <h2 id="titulo-checkout">Checkout</h2>
 
             <div class="contenedor-datos">
                 <div class="datos-personales">
                     <h3 class="titulo-personales"> Datos Personales </h3>
                     <label>Nombre y Apellido* </label>
-                    <input type="text" placeholder="p. ej.: Ada Lovelace" required>
+                    <input type="text" tabindex="0" placeholder="p. ej.: Ada Lovelace" required>
                     <label> Email* </label>
-                    <input type="email" placeholder="p. ej.: adalovelace@gmail.com" required>
+                    <input type="email" tabindex="0" placeholder="p. ej.: adalovelace@gmail.com" required>
 
                     <hr />
 
                     <h3 class="opciones"> Opciones de Pago </h3>
-                    <label>
-                        <input class="opcionesDePago" id="efectivo" type="radio" value="efectivo/debito" name="modo de pago"> Efectivo/Débito
+                    <label for="efectivo">
+                        <input class="opcionesDePago" id="efectivo" type="radio" value="efectivo/debito" name="modo de pago" checked tabindex="0"> Efectivo/Débito
                     </label>
 
-                    <label>
-                        <input class="opcionesDePago" id="credito" type="radio" value="tarjeta de credito" name="modo de pago"> Tarjeta de Crédito
+                    <label for="credito">
+                        <input class="opcionesDePago" id="credito" type="radio" value="tarjeta de credito" name="modo de pago" tabindex="0"> Tarjeta de Crédito
                     </label>
 
-                    <label>
-                        <input class="opcionesDePago" id="envioCheck" type="checkbox" value="quiere envio" name="envio"> Necesito Envío
+                    <label for="envioCheck">
+                        <input class="opcionesDePago" id="envioCheck" type="checkbox" value="quiere envio" name="envio" tabindex="0"> Necesito Envío
                     </label>
 
-                    <label>
-                        <input class="opcionesDePago" id="descuentoCheck" type="checkbox" value="tiene descuento" name="descuento"> Tengo Tarjeta de Descuento
+                    <label for="descuentoCheck">
+                        <input class="opcionesDePago" id="descuentoCheck" type="checkbox" value="tiene descuento" name="descuento" tabindex="0"> Tengo Tarjeta de Descuento
                     </label>
                 </div>
 
@@ -60,29 +60,29 @@
             </div>
 
             <div class="confirmacion">
-                <button id="seguir" type="button" value="seguir comprando">SEGUIR COMPRANDO</button>
-                <input id="finalizar" type="submit" value="FINALIZAR">
+                <button id="seguir" type="button" value="seguir comprando" tabindex="0">SEGUIR COMPRANDO</button>
+                <input id="finalizar" type="submit" value="FINALIZAR" tabindex="0">
             </div>
         </form>
     </div>
 
     <div class="overlay-vaciar hidden" id="overlay-vaciar"></div>
-    <div id="alert-vaciar" class="contenedor-vaciar hidden">
+    <div aria-labelledby="mensaje-vaciar" aria-hidden="true" id="alert-vaciar" class="contenedor-vaciar hidden">
         <article class="vaciar-carrito">
-            <p>Estás por vaciar el carrito, ¿quieres continuar?</p>
+            <p id="mensaje-vaciar">Estás por vaciar el carrito, ¿quieres continuar?</p>
             <div class="contenedor-botones-vaciar">
-                <button id="cancelar-vaciar">CANCELAR</button>
-                <button id="vaciar">VACIAR</button>
+                <button id="cancelar-vaciar" tabindex="0">CANCELAR</button>
+                <button id="vaciar" tabindex="0">VACIAR</button>
             </div>
         </article>
     </div>
 
 
     <div class="overlay hidden" id="overlay"></div>
-    <aside id="carrito-lateral">
+    <aside id="carrito-lateral" aria-labelledby="titulo-del-carrito" aria-hidden="true">
         <div class="titulo-carrito">
-            <h1> Carrito </h1>
-            <i id="cerrar" class="fas fa-times"></i>
+            <h1 class="titulo-del-carrito"> Carrito </h1>
+            <button id="cerrar" tabindex="0" aria-label="Cerrar carrito" class="focuseable-carrito"><i class="fas fa-times" aria-hidden="true"></i></button>
         </div>
         <div class="descripcion-compra">
             <div>
@@ -93,8 +93,8 @@
             </div>
             <div id="contenedor-subtotal-botones">
                 <p>Subtotal $<span id="subtotal"></span></p>
-                <button id="boton-comprar">COMPRAR</button>
-                <button id="boton-vaciar">VACIAR</button>
+                <button id="boton-comprar" tabindex="0" class="focuseable-carrito">COMPRAR</button>
+                <button id="boton-vaciar" tabindex="0" class="focuseable-carrito">VACIAR</button>
             </div>
         </div>
     </aside>
@@ -109,7 +109,7 @@
             <p class="nombre-pagina">ADA SHOP</p>
         </div>
         <div>
-            <button id="carrito" class="carrito"><i class="fas fa-shopping-cart"></i> Carrito (<span id="cantidad-en-carrito">0</span>     items)</button>
+            <button id="carrito" class="carrito focuseable" aria-controls="carrito de compras" tabindex="0" aria-expanded="false"><i class="fas fa-shopping-cart"></i> Carrito (<span id="cantidad-en-carrito">0</span>     items)</button>
         </div>
     </nav>
     <header>
@@ -122,39 +122,39 @@
 
     <section class="contenedor-filtros-productos">
         <!---------------------------------- FILTROS  ------------------------------------------>
-        <aside id="contenedor-filtros" class="contenedor-filtros">
+        <aside id="contenedor-filtros" class="contenedor-filtros" aria-labelledby="titulo-ppal-filtros">
             <div>
                 <div class="contenedor-cerrar">
-                    <button id="cerrar-filtros" class="cerrar-filtros"><i id="cerrar-filtros" class="fas fa-times"></i> </button>
+                    <button id="cerrar-filtros" class="cerrar-filtros" aria-label="Cerrar filtros" tabindex="0"><i id="cerrar-filtros" class="fas fa-times" aria-hidden="true"></i> </button>
                 </div>
                 <div class="titulo-filtros">
-                    <h1>FILTROS</h1>
-                    <button class="limpiar"> <i class="fas fa-trash-alt"></i>Limpiar </button>
+                    <h1 class="titulo-ppal-filtros">FILTROS</h1>
+                    <button class="limpiar focuseable" tabindex="0"> <i class="fas fa-trash-alt" aria-hidden="true"></i>Limpiar </button>
                 </div>
                 <form>
                     <div class="busqueda">
                         <h2 class="sub-filtros">BÚSQUEDA</h2>
-                        <div class="busqueda-escrita">
-                            <input type="text" id="busqueda-usuario" name="busqueda" placeholder="Buscar productos" />
-                            <i class="fas fa-search icono"></i>
+                        <div class="busqueda-escrita" aria-label="Busqueda">
+                            <input class="focuseable" type="text" id="busqueda-usuario" name="busqueda" placeholder="Buscar productos" tabindex="0"/>
+                            <i class="fas fa-search icono" aria-hidden="true"></i>
                         </div>
                     </div>
 
                     <div class="categorias">
                         <h2 class="sub-filtros">CATEGORÍA</h2>
 
-                        <label for="celulares"><input type="checkbox" id="celulares" name="categoria" value="celulares">
+                        <label for="celulares"><input type="checkbox" id="celulares" name="categoria" value="celulares" tabindex="0">
                             CELULARES</label>
-                        <label for="relojes"><input type="checkbox" id="relojes" name="categoria" value="relojes">
+                        <label for="relojes"><input type="checkbox" class="focuseable" id="relojes" name="categoria" value="relojes" tabindex="0">
                             RELOJES</label>
-                        <label for="computadoras"><input type="checkbox" id="computadoras" name="categoria"
-                                value="computadoras"> COMPUTADORAS</label>
-                        <label for="tv"><input type="checkbox" id="tv" name="categoria" value="tv"> TV</label>
-                        <label for="gaming"><input type="checkbox" id="gaming" name="categoria" value="gaming">
+                        <label for="computadoras"><input type="checkbox" class="focuseable" id="computadoras" name="categoria"
+                                value="computadoras" tabindex="0"> COMPUTADORAS</label>
+                        <label for="tv"><input type="checkbox" class="focuseable" id="tv" name="categoria" value="tv" tabindex="0"> TV</label>
+                        <label for="gaming"><input type="checkbox" class="focuseable" id="gaming" name="categoria" value="gaming" tabindex="0">
                             GAMING</label>
-                        <label for="auriculares"><input type="checkbox" id="auriculares" name="categoria"
-                                value="auriculares"> AURICULARES</label>
-                        <label for="tabletas"><input type="checkbox" id="tabletas" name="categoria" value="tabletas">
+                        <label for="auriculares"><input type="checkbox" class="focuseable" id="auriculares" name="categoria"
+                                value="auriculares" tabindex="0"> AURICULARES</label>
+                        <label for="tabletas"><input type="checkbox" class="focuseable" id="tabletas" name="categoria" value="tabletas" tabindex="0">
                             TABLETS</label>
 
                     </div>
@@ -162,64 +162,64 @@
                     <div class="puntaje">
                         <h2 class="sub-filtros">PUNTAJE</h2>
 
-                        <label for="5estrellas"><input type="checkbox" class="review-filter" id="5estrellas"
-                                name="calificacion" value="5">
+                        <label for="5estrellas"><input type="checkbox" class="review-filter focuseable" id="5estrellas"
+                                name="calificacion" value="5" tabindex="0">
                             <div class="calificacion-puntaje">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
                             </div> (5)
                         </label>
-                        <label for="4estrellas"><input type="checkbox" class="review-filter" id="4estrellas"
-                                name="calificacion" value="4">
+                        <label for="4estrellas"><input type="checkbox" class="review-filter focuseable" id="4estrellas"
+                                name="calificacion" value="4" tabindex="0">
                             <div class="calificacion-puntaje">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="far fa-star" aria-hidden="true"></i>
                             </div> (4)
                         </label>
-                        <label for="3estrellas"><input type="checkbox" class="review-filter" id="3estrellas"
-                                name="calificacion" value="3">
+                        <label for="3estrellas"><input type="checkbox" class="review-filter focuseable" id="3estrellas"
+                                name="calificacion" value="3" tabindex="0">
                             <div class="calificacion-puntaje">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="far fa-star" aria-hidden="true"></i>
+                                <i class="far fa-star" aria-hidden="true"></i>
                             </div> (3)
                         </label>
-                        <label for="2estrellas"><input type="checkbox" class="review-filter" id="2estrellas"
-                                name="calificacion" value="2">
+                        <label for="2estrellas"><input type="checkbox" class="review-filter focuseable" id="2estrellas"
+                                name="calificacion" value="2" tabindex="0">
                             <div class="calificacion-puntaje">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="far fa-star" aria-hidden="true"></i>
+                                <i class="far fa-star" aria-hidden="true"></i>
+                                <i class="far fa-star" aria-hidden="true"></i>
                             </div> (2)
                         </label>
-                        <label for="1estrella"><input type="checkbox" class="review-filter" id="1estrella"
-                                name="calificacion" value="1">
+                        <label for="1estrella"><input type="checkbox" class="review-filter focuseable" id="1estrella"
+                                name="calificacion" value="1" tabindex="0">
                             <div class="calificacion-puntaje">
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="far fa-star" aria-hidden="true"></i>
+                                <i class="far fa-star" aria-hidden="true"></i>
+                                <i class="far fa-star" aria-hidden="true"></i>
+                                <i class="far fa-star" aria-hidden="true"></i>
                             </div> (1)
                         </label>
-                        <label for="0estrella"><input type="checkbox" class="review-filter" id="0estrella"
-                                name="calificacion" value="0">
+                        <label for="0estrella"><input type="checkbox" class="review-filter focuseable" id="0estrella"
+                                name="calificacion" value="0" tabindex="0">
                             <div class="calificacion-puntaje">
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
+                                <i class="far fa-star" aria-hidden="true"></i>
+                                <i class="far fa-star" aria-hidden="true"></i>
+                                <i class="far fa-star" aria-hidden="true"></i>
+                                <i class="far fa-star" aria-hidden="true"></i>
+                                <i class="far fa-star" aria-hidden="true"></i>
                             </div> (0)
                         </label>
                 </form>
@@ -235,12 +235,12 @@
         <div>
             <!---------------------------------- BARRA CONTADORA DE PRODUCTOS  ------------------------------------------>
             <div class="indicador-productos">
-                <p>Mostrando <span id="cantidad-productos-mostrados">12</span> producto(s) de 12</p>
+                <p aria-live="polite">Mostrando <span id="cantidad-productos-mostrados">12</span> producto(s) de 12</p>
                 <div>
                     <p class="opciones-para-ver">Ver como </p>
-                    <button id="grilla" class="botones-grilla-lista"><i class="fas fa-th"></i></button>
-                    <button id="lista" class="botones-grilla-lista"><i class="fas fa-list"></i></button>
-                    <button id="filtros" class="boton-filtros"><i class="fas fa-filter"></i> Filtros</button>
+                    <button id="grilla" class="botones-grilla-lista focuseable" aria-label="Mostrar productos como grilla" tabindex="0"><i class="fas fa-th"></i></button>
+                    <button id="lista" class="botones-grilla-lista focuseable" aria-label="Mostrar productos como lista" tabindex="0"><i class="fas fa-list"></i></button>
+                    <button id="filtros" class="boton-filtros" aria-label="Mostrar filtros" tabindex="0"><i class="fas fa-filter"></i> Filtros</button>
                 </div>
             </div>
             <!----------------------------------  FIN BARRA CONTADORA DE PRODUCTOS  ------------------------------------------>
@@ -249,7 +249,7 @@
                 <article class="productos" data-nombre="Apple TV" data-rating="4" data-categoria="tv"
                     data-precio="20000" data-img="./productos/apple-tv.jpeg">
                     <div class="contenedor-imagen">
-                        <img class="img-tarj" src="./productos/apple-tv.jpeg">
+                        <img alt="apple-tv" class="img-tarj" src="./productos/apple-tv.jpeg">
                     </div>
                     <div class="descripcion">
                         <h3>Apple TV</h3>
@@ -259,20 +259,20 @@
                             quia pariatur. Aut enim dignissimos doloremque culpa tenetur. Possimus, quasi.
                         </p>
                         <div class="calificacion">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="far fa-star" aria-hidden="true"></i>
                         </div>
-                        <button data-nombre="appletv" class="boton-comprar-tarj">COMPRAR</button>
+                        <button data-nombre="appletv" class="boton-comprar-tarj focuseable" tabindex="0">COMPRAR</button>
                     </div>
                 </article>
 
                 <article class="productos" data-nombre="Beats Wireless" data-rating="5" data-categoria="auriculares"
                     data-precio="15000" data-img="./productos/auris-beat.jpeg">
                     <div class="contenedor-imagen">
-                        <img class="img-tarj" src="./productos/auris-beat.jpeg">
+                        <img alt="auriculares con conexion inalambrica marca Beats" class="img-tarj" src="./productos/auris-beat.jpeg">
                     </div>
                     <div class="descripcion">
                         <h3>Beats Wireless</h3>
@@ -282,20 +282,20 @@
                             quia pariatur. Aut enim dignissimos doloremque culpa tenetur. Possimus, quasi.
                         </p>
                         <div class="calificacion">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
                         </div>
-                        <button class="boton-comprar-tarj">COMPRAR</button>
+                        <button class="boton-comprar-tarj focuseable" tabindex="0">COMPRAR</button>
                     </div>
                 </article>
 
                 <article class="productos" data-nombre="Control Playstation" data-rating="3" data-categoria="gaming"
                     data-precio="17000" data-img="./productos/control-play.jpeg">
                     <div class="contenedor-imagen">
-                        <img class="img-tarj" src="./productos/control-play.jpeg">
+                        <img alt="control para Playstation" class="img-tarj" src="./productos/control-play.jpeg">
                     </div>
                     <div class="descripcion">
                         <h3>Control PlayStation</h3>
@@ -305,20 +305,20 @@
                             quia pariatur. Aut enim dignissimos doloremque culpa tenetur. Possimus, quasi.
                         </p>
                         <div class="calificacion">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="far fa-star" aria-hidden="true"></i>
+                            <i class="far fa-star" aria-hidden="true"></i>
                         </div>
-                        <button class="boton-comprar-tarj">COMPRAR</button>
+                        <button class="boton-comprar-tarj focuseable" tabindex="0">COMPRAR</button>
                     </div>
                 </article>
 
                 <article class="productos" data-nombre="AirPods Pro" data-rating="2" data-categoria="auriculares"
                     data-precio="26000" data-img="./productos/aurispro.jpeg">
                     <div class="contenedor-imagen">
-                        <img class="img-tarj" src="./productos/aurispro.jpeg">
+                        <img alt="auriculares inalambricos Apple" class="img-tarj" src="./productos/aurispro.jpeg">
                     </div>
                     <div class="descripcion">
                         <h3>AirPods Pro</h3>
@@ -328,20 +328,20 @@
                             quia pariatur. Aut enim dignissimos doloremque culpa tenetur. Possimus, quasi.
                         </p>
                         <div class="calificacion">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="far fa-star" aria-hidden="true"></i>
+                            <i class="far fa-star" aria-hidden="true"></i>
+                            <i class="far fa-star" aria-hidden="true"></i>
                         </div>
-                        <button class="boton-comprar-tarj">COMPRAR</button>
+                        <button class="boton-comprar-tarj focuseable" tabindex="0">COMPRAR</button>
                     </div>
                 </article>
 
                 <article class="productos" data-nombre="Control Xbox" data-rating="4" data-categoria="gaming"
                     data-precio="25000" data-img="./productos/control-xbox.jpeg">
                     <div class="contenedor-imagen">
-                        <img class="img-tarj" src="./productos/control-xbox.jpeg">
+                        <img alt="control inalambrico para Xbox" class="img-tarj" src="./productos/control-xbox.jpeg">
                     </div>
                     <div class="descripcion">
                         <h3>Control Xbox</h3>
@@ -351,20 +351,20 @@
                             quia pariatur. Aut enim dignissimos doloremque culpa tenetur. Possimus, quasi.
                         </p>
                         <div class="calificacion">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="far fa-star" aria-hidden="true"></i>
                         </div>
-                        <button class="boton-comprar-tarj">COMPRAR</button>
+                        <button class="boton-comprar-tarj focuseable" tabindex="0">COMPRAR</button>
                     </div>
                 </article>
 
                 <article class="productos" data-nombre="iMac" data-rating="4" data-categoria="computadoras"
                     data-precio="100000" data-img="./productos/imac.jpeg">
                     <div class="contenedor-imagen">
-                        <img class="img-tarj" src="./productos/imac.jpeg">
+                        <img alt="Computadora de escritorio Imac" class="img-tarj" src="./productos/imac.jpeg">
                     </div>
                     <div class="descripcion">
                         <h3>iMac</h3>
@@ -374,20 +374,20 @@
                             quia pariatur. Aut enim dignissimos doloremque culpa tenetur. Possimus, quasi.
                         </p>
                         <div class="calificacion">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="far fa-star" aria-hidden="true"></i>
                         </div>
-                        <button class="boton-comprar-tarj">COMPRAR</button>
+                        <button class="boton-comprar-tarj focuseable" tabindex="0">COMPRAR</button>
                     </div>
                 </article>
 
                 <article class="productos" data-nombre="iPad Pro 12" data-rating="4" data-categoria="tabletas"
                     data-precio="60000" data-img="./productos/ipad-pro-12.png">
                     <div class="contenedor-imagen">
-                        <img class="img-tarj" src="./productos/ipad-pro-12.png">
+                        <img alt="Ipad Pro 12" class="img-tarj" src="./productos/ipad-pro-12.png">
                     </div>
                     <div class="descripcion">
                         <h3>iPad Pro 12</h3>
@@ -397,20 +397,20 @@
                             quia pariatur. Aut enim dignissimos doloremque culpa tenetur. Possimus, quasi.
                         </p>
                         <div class="calificacion">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="far fa-star" aria-hidden="true"></i>
                         </div>
-                        <button class="boton-comprar-tarj">COMPRAR</button>
+                        <button class="boton-comprar-tarj focuseable" tabindex="0">COMPRAR</button>
                     </div>
                 </article>
 
                 <article class="productos" data-nombre="iPhone Xr" data-rating="4" data-categoria="celulares"
                     data-precio="50000" data-img="./productos/iphone-xr.jpeg">
                     <div class="contenedor-imagen">
-                        <img class="img-tarj" src="./productos/iphone-xr.jpeg">
+                        <img alt="iphone xr" class="img-tarj" src="./productos/iphone-xr.jpeg">
                     </div>
                     <div class="descripcion">
                         <h3>iPhone Xr</h3>
@@ -420,20 +420,20 @@
                             quia pariatur. Aut enim dignissimos doloremque culpa tenetur. Possimus, quasi.
                         </p>
                         <div class="calificacion">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="far fa-star" aria-hidden="true"></i>
                         </div>
-                        <button class="boton-comprar-tarj">COMPRAR</button>
+                        <button class="boton-comprar-tarj focuseable" tabindex="0">COMPRAR</button>
                     </div>
                 </article>
 
                 <article class="productos" data-nombre="iPhone 11" data-rating="4" data-categoria="celulares"
                     data-precio="55000" data-img="./productos/iphone11.jpeg">
                     <div class="contenedor-imagen">
-                        <img class="img-tarj" src="./productos/iphone11.jpeg">
+                        <img alt="iphone 11" class="img-tarj" src="./productos/iphone11.jpeg">
                     </div>
                     <div class="descripcion">
                         <h3>iPhone 11</h3>
@@ -443,20 +443,20 @@
                             quia pariatur. Aut enim dignissimos doloremque culpa tenetur. Possimus, quasi.
                         </p>
                         <div class="calificacion">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="far fa-star" aria-hidden="true"></i>
                         </div>
-                        <button class="boton-comprar-tarj">COMPRAR</button>
+                        <button class="boton-comprar-tarj focuseable" tabindex="0">COMPRAR</button>
                     </div>
                 </article>
 
                 <article class="productos" data-nombre="MacBook Pro" data-rating="4" data-categoria="computadoras"
                     data-precio="90000" data-img="./productos/macbookpro.jpg">
                     <div class="contenedor-imagen">
-                        <img class="img-tarj" src="./productos/macbookpro.jpg">
+                        <img alt="Macbook Pro" class="img-tarj" src="./productos/macbookpro.jpg">
                     </div>
                     <div class="descripcion">
                         <h3>MacBook Pro</h3>
@@ -466,20 +466,20 @@
                             quia pariatur. Aut enim dignissimos doloremque culpa tenetur. Possimus, quasi.
                         </p>
                         <div class="calificacion">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="far fa-star" aria-hidden="true"></i>
                         </div>
-                        <button class="boton-comprar-tarj">COMPRAR</button>
+                        <button class="boton-comprar-tarj focuseable" tabindex="0">COMPRAR</button>
                     </div>
                 </article>
 
                 <article class="productos" data-nombre="Iwatch Nike" data-rating="4" data-categoria="relojes"
                     data-precio="35000" data-img="./productos/reloj-nike.jpeg">
                     <div class="contenedor-imagen">
-                        <img class="img-tarj" src="./productos/reloj-nike.jpeg">
+                        <img alt="reloj digital Nike" class="img-tarj" src="./productos/reloj-nike.jpeg">
                     </div>
                     <div class="descripcion">
                         <h3>iWatch Nike</h3>
@@ -489,20 +489,20 @@
                             quia pariatur. Aut enim dignissimos doloremque culpa tenetur. Possimus, quasi.
                         </p>
                         <div class="calificacion">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="far fa-star" aria-hidden="true"></i>
                         </div>
-                        <button class="boton-comprar-tarj">COMPRAR</button>
+                        <button class="boton-comprar-tarj focuseable" tabindex="0">COMPRAR</button>
                     </div>
                 </article>
 
                 <article class="productos" data-nombre="Iwatch Series 3" data-rating="4" data-categoria="relojes"
                     data-precio="35000" data-img="./productos/reloj3.jpeg">
                     <div class="contenedor-imagen">
-                        <img class="img-tarj" src="./productos/reloj3.jpeg">
+                        <img alt="reloj digital Apple" class="img-tarj" src="./productos/reloj3.jpeg">
                     </div>
                     <div class="descripcion">
                         <h3>iWatch Series 3</h3>
@@ -512,13 +512,13 @@
                             quia pariatur. Aut enim dignissimos doloremque culpa tenetur. Possimus, quasi.
                         </p>
                         <div class="calificacion">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="far fa-star" aria-hidden="true"></i>
                         </div>
-                        <button class="boton-comprar-tarj">COMPRAR</button>
+                        <button class="boton-comprar-tarj focuseable" tabindex="0">COMPRAR</button>
                     </div>
                 </article>
             </div>

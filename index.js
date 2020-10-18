@@ -142,7 +142,7 @@ const cantidadProductosMostrados = document.getElementById("cantidad-productos-m
    const resultadoProductosMostrados = 12 - cantidadProductosEscondidos
 
    cantidadProductosMostrados.textContent = resultadoProductosMostrados
- }
+}
 
 //------------BOTON LIMPIAR FILTROS--------------------//
 
@@ -169,14 +169,20 @@ const botonCerrarMenu = document.getElementById("cerrar");
 const menuLateral = document.getElementById("carrito-lateral");
 const overlay = document.getElementById("overlay");
 
+const elementosFocuseablesPrincipales = document.querySelectorAll(".focuseable")
+
 const indicadorProductosAgregados = document.getElementById(
   "indicador-cantidad-productos"
 );
 
 botonCarrito.onclick = () => {
+  botonCarrito.setAttribute('aria-expanded', true)
+  esconderTabindex(elementosFocuseablesPrincipales)
   menuLateral.classList.add("mostrar-menu");
+  menuLateral.setAttribute('aria-hidden', false)
   overlay.classList.remove("hidden");
   document.body.classList.add("no-scroll");
+
 
   crearProductosEnCarrito()
 
@@ -188,6 +194,9 @@ botonCarrito.onclick = () => {
 };
 
 botonCerrarMenu.onclick = () => {
+  botonCarrito.setAttribute('aria-expanded', false)
+  recuperarTabindex(elementosFocuseablesPrincipales)
+  menuLateral.setAttribute('aria-hidden', true)
   menuLateral.classList.remove("mostrar-menu");
   overlay.classList.add("hidden");
   document.body.classList.remove("no-scroll");
@@ -200,7 +209,12 @@ const overlayCheckout = document.getElementById("overlay-checkout");
 const menuCheckout = document.getElementById("checkout");
 const botonSeguirComprando = document.getElementById("seguir");
 
+
 botonComprar.onclick = () => {
+  const elementosFocuseablesCarrito = document.querySelectorAll(".focuseable-carrito")
+  menuLateral.setAttribute('aria-hidden', true)
+  menuCheckout.setAttribute('aria-hidden', false)
+  esconderTabindex(elementosFocuseablesCarrito)
   menuCheckout.classList.remove("hidden");
   overlayCheckout.classList.remove("hidden");
 
@@ -208,6 +222,10 @@ botonComprar.onclick = () => {
 };
 
 botonSeguirComprando.onclick = () => {
+  const elementosFocuseablesCarrito = document.querySelectorAll(".focuseable-carrito")
+  menuLateral.setAttribute('aria-hidden', false)
+  menuCheckout.setAttribute('aria-hidden', true)
+  recuperarTabindex(elementosFocuseablesCarrito)
   menuCheckout.classList.add("hidden");
   overlayCheckout.classList.add("hidden");
 };
@@ -225,15 +243,24 @@ const subYBotones = document.getElementById("contenedor-subtotal-botones");
 botonVaciar.onclick = () => {
   overlayVaciar.classList.remove("hidden");
   alertVaciar.classList.remove("hidden");
+  alertVaciar.setAttribute('aria-hidden', false)
+  menuLateral.setAttribute('aria-hidden', true)
+  esconderTabindex(elementosFocuseablesCarrito)
+  
 };
 
 botonCancelar.onclick = () => {
   overlayVaciar.classList.add("hidden");
+  menuLateral.setAttribute('aria-hidden', false)
+  alertVaciar.setAttribute('aria-hidden', true)
+  recuperarTabindex(elementosFocuseablesCarrito)
   alertVaciar.classList.add("hidden");
 };
 
 botonConfirmarVaciar.onclick = () => {
   overlayVaciar.classList.add("hidden");
+  menuLateral.setAttribute('aria-hidden', false)
+  recuperarTabindex(elementosFocuseablesCarrito)
   alertVaciar.classList.add("hidden");
   eliminarProductos()
   indicadorProductosAgregados.textContent =
@@ -251,7 +278,17 @@ const eliminarProductos = () => {
   calcularProductosEnCarrito()
 }
 
+const esconderTabindex = (lista) => {
+  for (let elemento of lista) {
+    elemento.setAttribute('tabindex', -1)
+  }
+}
 
+const recuperarTabindex = (lista) => {
+  for (let elemento of lista) {
+    elemento.setAttribute('tabindex', 0)
+  }
+}
 
 //-------------------------------------- CAMBIAR DE GRILLA A LISTA O VICEVERSA -----------------------------------------------//
 const botonGrilla = document.getElementById("grilla");
@@ -312,16 +349,16 @@ const crearTarjetaProducto = (producto) => {
   const productoHTML = `
   <div data-nombre="${producto.dataset.nombre}" class="contenedor-producto-carrito">
       <div class="contenedor-img-carrito">
-        <img clas="img-carrito" src="${producto.dataset.img}">
+        <img clas="img-carrito" alt="${producto.dataset.nombre}" src="${producto.dataset.img}">
       </div>
       <div class="contenedor-descripcion-carrito">
         <div class="linea-superior-descripcion">
           <h3>${producto.dataset.nombre}</h3>
-          <button class="boton-tacho"><i class="far fa-trash-alt tacho"></i></button>
+          <button class="boton-tacho focuseable-carrito" tabindex="0" ><i class="far fa-trash-alt tacho" aria-hidden"true"></i></button>
         </div>
         <div class="linea-inferior-descripcion">
-          <label class="medida-productos">
-            <input data-precio="${producto.dataset.precio}" id="cantidad-productos" class="cantidad-productos" type="number" min="1" value="1">unidades
+          <label class="medida-productos" for="cantidad-productos">
+            <input data-precio="${producto.dataset.precio}" id="cantidad-productos" class="cantidad-productos focuseable-carrito" type="number" min="1" value="1" tabindex="0">unidades
           </label>
           <p>$ ${producto.dataset.precio}</p>
         </div>
@@ -524,12 +561,16 @@ const contenedorFiltros = document.getElementById("contenedor-filtros")
 const botonCerrarFiltros = document.getElementById("cerrar-filtros") 
 
 botonMostrarFiltros.onclick = () => {
+  botonMostrarFiltros.setAttribute('tabindex', -1)
+  botonMostrarFiltros.setAttribute('aria-expanded', false)
   contenedorFiltros.classList.add("mostrar-filtros")
   overlay.classList.remove("hidden");
   document.body.classList.add("no-scroll");
 }
 
 botonCerrarFiltros.onclick = () => {
+  botonMostrarFiltros.setAttribute('tabindex', 0)
+  botonMostrarFiltros.setAttribute('aria-expanded', true)
   contenedorFiltros.classList.remove("mostrar-filtros")
   overlay.classList.add("hidden");
   document.body.classList.remove("no-scroll");

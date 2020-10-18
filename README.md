@@ -10,9 +10,9 @@ _Estas son las tecnologias utilizadas para este proyecto:_
 * CSS3
 * JavaScript
 
-```
+
 El diseño a seguir fue el siguiente [Shop Modelo](https://frontend-proyecto-tienda.adaitw.org/) 
-```
+
 
 ## Proyecto 🚀
 
@@ -34,9 +34,9 @@ _Technologies used for this project:_
 * CSS3
 * JavaScript
 
-```
+
 The design that was given to follow was the next one [Shop Modelo](https://frontend-proyecto-tienda.adaitw.org/) 
-```
+
 
 ## Project 🚀
 
